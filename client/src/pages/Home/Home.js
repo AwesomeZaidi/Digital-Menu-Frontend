@@ -7,15 +7,15 @@ class Home extends Component {
     render() {
         return (
             <section className='home'>
-                <div class='top'>
-                    <div class='left-content'>
-                        <h1 class='block__title'>Manage menus,<br></br>
+                <div className='top'>
+                    <div className='left-content'>
+                        <h1 className='block__title'>Manage menus,<br></br>
                             in one place.
                         </h1>
 
-                        <p class='block__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
+                        <p className='block__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
 
-                        <a class='block__btn'>Sign up</a>
+                        <a className='block__btn'>Sign up</a>
                     </div>
                 </div>
             </section>
