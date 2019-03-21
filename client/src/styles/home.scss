@@ -43,6 +43,35 @@
     .how-it-works {
         background-color: $secondary;
         color: $text;
-        padding: 3em 16em;
+        padding: 3em 16em; 
+        .how-works__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .how-works__step-numb {
+            flex-shrink: 0;
+            display: inline-block;
+            margin-right: 30px;
+            width: 46px;
+            height: 46px;
+            color: #000;
+            font-size: 20px;
+            line-height: 46px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #f4f4f4;
+        }
+        .how-works__step-text {
+            color: #303030;
+            font-size: 18px;
+            max-width: 413px;
+            line-height: 1.44;
+            letter-spacing: -0.65px;
+        }
+        a {
+            background-color: $text;
+            color: $secondary;
+        }
     }
 }

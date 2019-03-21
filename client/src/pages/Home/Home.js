@@ -8,9 +8,7 @@ class Home extends Component {
             <section className='home'>
                 <div className='top'>
                     <div className='left-content section-side-padding'>
-                        <h1 className='block__title'>Manage menues,<br></br>
-                            in one place.
-                        </h1>
+                        <h1 className='block__title'>Manage menus</h1>
 
                         <p className='block__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
 
@@ -41,9 +39,23 @@ class Home extends Component {
                         <p className='block__paragraph'>Never again will customers see wrong prices listed.</p>
                     </div>
                 </div>
-                <div class='how-it-works section-padding'>
-                <h1 className='block__title'>How it works<br></br>
-                </h1>
+                <div className='how-it-works section-padding'>
+                    <h1 className='mid-title'>How it works</h1>
+                    <ul className='how-works__steps'>
+                        <li className='how-works__item'>
+                            <span className='how-works__step-numb'>1</span>
+                            <span className='how-works__step-text'>Tell us your menus and locations.</span>
+                        </li>
+                        <li className='how-works__item'>
+                            <span className='how-works__step-numb'>2</span>
+                            <span className='how-works__step-text'>Update your prices using our app.</span>
+                        </li>
+                        <li className='how-works__item'>
+                            <span className='how-works__step-numb'>3</span>
+                            <span className='how-works__step-text'>Other menus will pull your up to date menu from us.</span>
+                        </li>
+                        <a className='block__btn'>Sign up</a>
+                    </ul>
                 </div>
             </section>
         );
