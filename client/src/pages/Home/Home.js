@@ -3,7 +3,6 @@ import "../../styles/home.scss";
 
 class Home extends Component {
     // 🤔 probably don't need a state here.
-
     render() {
         return (
             <section className='home'>
@@ -26,6 +25,9 @@ class Home extends Component {
                         <img src='./assets/images/opentable.png'></img>
                         <img src='./assets/images/google.png'></img>
                     </div>
+                </div>
+                <div class='lower'>
+                    <h1>Woo waaaaa</h1>
                 </div>
             </section>
         );
