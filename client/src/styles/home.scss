@@ -29,4 +29,16 @@
             }
         }   
     }
+
+    .advantage-block {
+        background-color: $secondary;
+        color: $text;
+        padding: 3em 5em;
+        border-bottom: 1px solid;
+        border-color: #9b9b9b;
+    }
+
+    .item  {
+        max-width: 22em;
+    }
 }

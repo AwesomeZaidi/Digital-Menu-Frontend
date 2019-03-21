@@ -43,6 +43,10 @@ a {
     justify-content: space-evenly;
 }
 
+.justify-content-center {
+    justify-content: center;
+}
+
 .block__paragraph {
     margin: 0 0 41px;
     max-width: 415px;
@@ -60,6 +64,14 @@ a {
     font-weight: 700;
     text-shadow: none;
     letter-spacing: -0.3px;
+}
+
+.advantage-block__title {
+    margin-bottom: 16px;
+    color: $text;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
 }
 
 .block__btn {
