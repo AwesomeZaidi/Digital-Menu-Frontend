@@ -16,6 +16,6 @@ const Nav = () => (
   </header>
 );
 
-{/* <img class='logo' src='./assets/logo.png'></img> */}
+{/* <img className='logo' src='./assets/logo.png'></img> */}
 
 export default Nav;

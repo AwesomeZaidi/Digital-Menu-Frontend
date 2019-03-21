@@ -8,7 +8,7 @@
     .top {
         padding-top: 4em;
         background-color: $primary;
-        background-image: url(/static/media/topbg.0cd1fa9d.webp);
+        background-image: url(../assets/topbg.webp);
         background-position-y: bottom;
         background-position-x: right;
         background-size: 100%;
@@ -18,6 +18,12 @@
             margin-left: 16em;
             a {
                 margin-bottom: 10em;
+            }
+        }
+        .lower-logos {
+            img { 
+                width: 8em;
+                max-height: 8em;
             }
         }
     }
