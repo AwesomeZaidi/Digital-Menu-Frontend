@@ -26,11 +26,23 @@ a {
     color: $secondary;
 }
 
+p {
+    padding: 0;
+    margin: 0;
+}
+
 .logo {
     max-width: 3em;
 }
 
 // USEFUL CLASSES
+
+.top-bot-border {
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: #dadada;
+}
+
 .align-items-center {
     align-items: center;
 }
@@ -154,6 +166,15 @@ a {
     }
 }
 
-// .nav > * {
-//     display: flex;
-// }
+.footer {
+    background-color: $background;
+    color: $secondary;
+    padding: 5em 6em;
+    .logo {
+        color: $primary;
+    }
+
+    // .links {
+    //     color: $d
+    // }
+}
