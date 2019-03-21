@@ -1,8 +1,126 @@
 @import 'variables.scss';
 
+// BASE STYLES
 html, body {
+    margin: 0;
+    padding: 0;
     min-width: 100%;
     min-height: 100%;
     background-color: $primary;
+    font-size: 16px;
+    color: $secondary;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+a {
+    text-decoration: none;
+    color: $secondary;
+}
+
+.logo {
+    max-width: 3em;
+}
+
+// USEFUL CLASSES
+.align-items-center {
+    align-items: center;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.block__paragraph {
+    margin: 0 0 41px;
+    max-width: 415px;
+    font-size: 20px;
+    line-height: 1.4;
+    text-shadow: none;
+    font-weight: 200;
+    letter-spacing: .4px;
+}
+
+.block__title {
+    margin: 3px 0 23px;
+    max-width: 100%;
+    font-size: 55px;
+    font-weight: 700;
+    text-shadow: none;
+    letter-spacing: -0.3px;
+}
+
+.block__btn {
+    padding: 18px 15px;
+    margin: 0 0 100px;
+    width: 100%;
+    max-width: 185px;
+    min-width: initial;
+    color: $primary;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.65px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-radius: 6px;
+    background-color: $secondary;
+    display: inline-block;
+    line-height: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all 0.25s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.block__btn:hover {
+    background-color: #ffffffaf;
+}
+
+// COMPONENT STYLES
+.header-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 60px;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    min-height: 60px;
+    position: relative;
+
+    .header__right {
+        display: flex;
+    }
+}
+
+.header-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 4em;
+    padding: 1em;
+    a {
+        padding: 1em;
+    }
+}
+
+// .nav > * {
+//     display: flex;
+// }

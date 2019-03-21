@@ -2,5 +2,23 @@
 @import 'components.scss';
 
 .home {
+    color: $secondary;
     background-color: $primary;
+
+    .top {
+        padding-top: 4em;
+        background-color: $primary;
+        background-image: url(/static/media/topbg.0cd1fa9d.webp);
+        background-position-y: bottom;
+        background-position-x: right;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 100%;
+        .left-content {
+            margin-left: 16em;
+            a {
+                margin-bottom: 10em;
+            }
+        }
+    }
 }

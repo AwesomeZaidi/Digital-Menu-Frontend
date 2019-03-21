@@ -1,1 +1,9 @@
-$primary: #060653;
+$primary: #ff6a44;
+$secondary: rgb(252, 252, 252);
+$text: #000000;
+// FONTS
+
+@font-face {
+font-family: regular;
+src: url(../assets/fonts/HelveticaNeue.ttc);
+}
