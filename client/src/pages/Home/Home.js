@@ -4,7 +4,11 @@ class Home extends Component {
     // 🤔 probably don't need a state here.
 
     render() {
-        return <h1>Digital Menu</h1>
+        return (
+            <section className='home'>
+                
+            </section>
+        );
     }
 }
 
