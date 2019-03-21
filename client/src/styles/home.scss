@@ -23,9 +23,9 @@
         .lower-logos {
                 margin-top: 1em;
             img { 
+                margin: 0em 2em 1.2em 1em;
                 width: 8em;
                 max-height: 8em;
-                
             }
         }   
     }
@@ -33,12 +33,16 @@
     .advantage-block {
         background-color: $secondary;
         color: $text;
-        padding: 3em 5em;
         border-bottom: 1px solid;
-        border-color: #9b9b9b;
+        border-color: #dadada;
+        .item  {
+            max-width: 22em;
+        }
     }
-
-    .item  {
-        max-width: 22em;
+    
+    .how-it-works {
+        background-color: $secondary;
+        color: $text;
+        padding: 3em 16em;
     }
 }

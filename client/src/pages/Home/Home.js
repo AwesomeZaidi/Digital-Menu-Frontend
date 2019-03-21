@@ -7,7 +7,7 @@ class Home extends Component {
         return (
             <section className='home'>
                 <div className='top'>
-                    <div className='left-content'>
+                    <div className='left-content section-side-padding'>
                         <h1 className='block__title'>Manage menues,<br></br>
                             in one place.
                         </h1>
@@ -16,7 +16,7 @@ class Home extends Component {
 
                         <a className='block__btn'>Sign up</a>
                     </div>
-                    <div className='lower-logos align-items-center flexbox justify-content-space-evenly'>
+                    <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
                         <img src='./assets/images/doordash.png'></img>
                         <img src='./assets/images/grubhub.png'></img>
                         <img src='./assets/images/uber.png'></img>
@@ -26,7 +26,7 @@ class Home extends Component {
                         <img src='./assets/images/google.png'></img>
                     </div>
                 </div>
-                <div className='advantage-block flexbox justify-content-space-evenly'>
+                <div className='advantage-block flexbox justify-content-space-evenly section-padding'>
                     <div className='item'>
                         <p className='advantage-block__title'>Over 100 restaurants</p>
                         <p className='block__paragraph'>Take care of your menus easier than ever.</p>
@@ -40,6 +40,10 @@ class Home extends Component {
                         <p className='advantage-block__title'>Keep customers happy</p>
                         <p className='block__paragraph'>Never again will customers see wrong prices listed.</p>
                     </div>
+                </div>
+                <div class='how-it-works section-padding'>
+                <h1 className='block__title'>How it works<br></br>
+                </h1>
                 </div>
             </section>
         );
