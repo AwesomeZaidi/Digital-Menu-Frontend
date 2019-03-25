@@ -1,4 +1,4 @@
-// src/js/constants/action-types.js
+// src/redux/constants/action-types.js
 
 export const GET_ERRORS = "GET_ERRORS";
 export const USER_LOADING = "USER_LOADING";

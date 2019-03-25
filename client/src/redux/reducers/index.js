@@ -1,4 +1,4 @@
-// src/js/reducers/index.js
+// src/redux/reducers/index.js
 
 import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_ERROR, HANDLE_LOGOUT } from "../constants/action-types";
 
