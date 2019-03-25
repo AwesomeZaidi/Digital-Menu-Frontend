@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import HowItWorks from '../../components/HowItWorks';
 import "../../styles/home.scss";
 
 class Home extends Component {
@@ -39,24 +40,7 @@ class Home extends Component {
                         <p className='block__paragraph'>Never again will customers see wrong prices listed.</p>
                     </div>
                 </div>
-                <div className='how-it-works section-padding'>
-                    <h1 className='mid-title'>How it works</h1>
-                    <ul className='how-works__steps'>
-                        <li className='how-works__item'>
-                            <span className='how-works__step-numb'>1</span>
-                            <span className='how-works__step-text'>Tell us your menus and locations.</span>
-                        </li>
-                        <li className='how-works__item'>
-                            <span className='how-works__step-numb'>2</span>
-                            <span className='how-works__step-text'>Update your prices using our app.</span>
-                        </li>
-                        <li className='how-works__item'>
-                            <span className='how-works__step-numb'>3</span>
-                            <span className='how-works__step-text'>Other menus will pull your up to date menu from us.</span>
-                        </li>
-                        <a className='block__btn'>Sign up</a>
-                    </ul>
-                </div>
+                <HowItWorks />
             </section>
         );
     }
