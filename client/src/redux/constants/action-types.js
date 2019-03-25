@@ -5,5 +5,5 @@ export const USER_LOADING = "USER_LOADING";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const HANDLE_LOGIN = "HANDLE_LOGIN";
 export const HANDLE_SIGNUP = "SIGNUP_USER";
-export const LOGOUT_USER = "LOGOUT_USER";
+export const HANDLE_LOGOUT = "LOGOUT_USER";
 export const HANDLE_ERROR = "HANDLE_ERROR";
