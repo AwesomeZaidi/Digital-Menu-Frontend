@@ -12,7 +12,6 @@ Digital Menu x Restaurant intuitive menu management. (React, Redux, JSX, ES6, Sc
 **v1 Release**: Monday 03/25/2019 12pm PST.
     - Users can add and update different menus items and prices of different locations.
 
-**v3 Release**: Wednesday 03/26/2019 3pm PST.
-    - Users can grab links to up to date excel sheets.
-
 **More Documentation coming shortly.**
+
+
