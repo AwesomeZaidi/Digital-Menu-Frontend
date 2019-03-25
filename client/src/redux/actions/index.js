@@ -5,7 +5,7 @@ import axios from "axios";
 
 export function login(loginState) {
     return (dispatcher) => { // read more into dispatcher
-        axios.post(`/login`, loginState).then((res) => {
+        axios.post(`/users/v0/login`, loginState).then((res) => {
             dispatcher(handleLogin(res.data.user)); // THUNKED IT!
         }).catch((err) => {
             dispatcher(handleError(true));
@@ -23,7 +23,7 @@ export const handleLogin = (user) => {
 
 export function signup(signupState) {
     return (dispatcher) => {
-        axios.post(`/signup`, signupState).then((res) => {
+        axios.post(`/users/v0/signup`, signupState).then((res) => {
             dispatcher(handleSignup(res.data.user));
         }).catch(console.err);
     };
