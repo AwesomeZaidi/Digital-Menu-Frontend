@@ -1,5 +1,7 @@
 import React, { Component} from 'react';
 import HowItWorks from '../../components/HowItWorks';
+import Advantage from '../../components/Advantage';
+
 import "../../styles/home.scss";
 
 class Home extends Component {
@@ -9,11 +11,11 @@ class Home extends Component {
             <section className='home'>
                 <div className='top'>
                     <div className='left-content section-side-padding'>
-                        <h1 className='block__title'>Manage menus</h1>
+                        <h1 className='__title'>Manage menus</h1>
 
-                        <p className='block__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
+                        <p className='__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
 
-                        <a className='block__btn'>Sign up</a>
+                        <a className='__btn'>Sign up</a>
                     </div>
                     <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
                         <img src='./assets/images/doordash.png'></img>
@@ -25,21 +27,7 @@ class Home extends Component {
                         <img src='./assets/images/google.png'></img>
                     </div>
                 </div>
-                <div className='advantage-block flexbox justify-content-space-evenly section-padding'>
-                    <div className='item'>
-                        <p className='advantage-block__title'>Over 100 restaurants</p>
-                        <p className='block__paragraph'>Take care of your menus easier than ever.</p>
-                    </div>
-                    <div className='item'>
-                        <p className='advantage-block__title'>Convenient and easy</p>
-                        <p className='block__paragraph'>Never login to another service to udpate the same things.</p>
-                    </div>
-
-                    <div className='item'>
-                        <p className='advantage-block__title'>Keep customers happy</p>
-                        <p className='block__paragraph'>Never again will customers see wrong prices listed.</p>
-                    </div>
-                </div>
+                <Advantage />
                 <HowItWorks />
             </section>
         );
