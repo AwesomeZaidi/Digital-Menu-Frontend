@@ -1,21 +1,49 @@
-import React from "react";
-const Nav = () => (
-  <header className='header hedaer-wrapper'>
-    <div className='header__content' >
-      <div className='header__left'>
-        <h1>Digital Menu</h1>
-      </div>
-      <div className='header__right'>
-        <nav className='header-nav align-items-center'>
-          <a href='/login'>Login</a>
-          <a href='/signup'>Signup</a>
-          <a href='contact'>Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-);
+import React, { Component } from 'react';
+import { logout } from '../../redux/actions/index';
+import { connect } from 'react-redux';
 
-{/* <img className='logo' src='./assets/logo.png'></img> */}
 
-export default Nav;
+class Nav extends Component {
+
+  render() {
+    return (
+      <header className='header hedaer-wrapper'>
+        <div className='header__content' >
+          <div className='header__left'>
+            <a href='/'><h1>Digital Menu</h1></a>
+          </div>
+          <div className='header__right'>
+            <nav className='header-nav align-items-center'>
+              <a>Contact</a>
+              { this.props.user ?
+                <div>
+                  <a href='/dashboard'>Dashboard</a>
+                  <a href='/settings'>Settings</a>
+                  <a onClick={this.props.logout}>Logout</a>
+                </div>
+                :       
+                <div>
+                  <a href='/login'>Login</a>
+                  <a href='/signup'>Signup</a>
+                </div>
+              }
+            </nav>
+          </div>
+        </div>
+      </header>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+function mapDispatchToProps() {
+  return {
+      logout
+  };
+};
+
+
+export default connect(mapStateToProps, {logout})(Nav);
