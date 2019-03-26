@@ -1,0 +1,97 @@
+
+@import 'variables.scss';
+
+.dashboard {
+    margin-top: -2em;
+    h2 {
+        text-align: center !important;
+        font-weight: 500;
+        line-height: 56px;
+        font-size: 48px;
+        letter-spacing: .01em;
+        text-align: center;
+        margin: 0;
+        color: white;
+    }
+    .menu-sentence {
+        color: #fff !important;
+    }
+    .menu-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: -1.2em;
+        min-height: 45em;
+        .location-section {
+            background-color: $background;
+            padding: 1em 1.2em;
+            margin-bottom: 68px !important;
+            width: 20vw;
+            margin-right: .6em;
+            border: none;
+            border-radius: 8px;
+            text-align: right;
+            float: right;
+            p {
+                line-height: 32px;
+                letter-spacing: 1px;
+                font-size: 14px;
+                font-weight: 100;
+             }
+
+             p.active {
+                 font-weight: 900;
+             }
+        }
+        .digital-menu {
+            background-color: #fff;
+            width: 46vw;
+            padding: 3em 3em;
+            margin-bottom: 68px !important;
+            border: none;
+            border-radius: 8px;
+            table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            color: black;
+            }
+            td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            }
+        
+            tr:nth-child(even) {
+            background-color: #dddddd;
+            }
+        }
+    }
+}
+
+.menu-btn {
+    margin: 1.4em 0em;
+    padding: .4em 3.6em;
+    background-color: #ff6a44;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    float: left;
+    text-align: left;
+}
+
+.loc-btn {
+    padding: .4em 1.6em;
+    background-color: #ff6a44;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1em;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.loc-input {
+    color: #fff;
+}
