@@ -178,3 +178,161 @@ p {
     //     color: $d
     // }
 }
+
+h1 {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 64px;
+    font-size: 56px;
+    margin-bottom: 24px;
+}
+
+
+.top-down-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.hero-section {
+    background-color: $primary;
+    height: 10vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.form-wrapper {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 8em;
+}
+
+.user-form {
+    background-color: white;
+    color: black;
+    position: relative;
+    max-width: 40vw;
+    box-shadow: 0 0 1px rgba(7,32,60,.12), 0 1px 3px rgba(7,32,60,.16);
+    margin-top: -7em;
+    padding: 80px 80px 56px 80px;
+    margin-bottom: 80px;
+    z-index: 1;
+    border-radius: 12px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0em;
+    margin: 0;
+    label {
+        font-weight: 500;
+        margin-bottom: 8px;
+        padding-left: 1px;
+    }
+    
+    input, select {
+        padding: .6em .8em;
+        background-color: transparent;
+        font-size: 1em;
+        border: 1px solid #c9c9c9;
+        border-radius: 6px;
+        text-align: left;
+    }
+}
+
+h2.content-section {
+    text-align: left !important;
+    font-weight: 500;
+    line-height: 56px;
+    font-size: 48px;
+    letter-spacing: .01em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: $background;
+}
+
+p.content-section {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    font-size: 18px;
+    text-align: left;
+    color: #53637a;
+    padding: 24px 0 24px;
+    margin: 0;
+}
+
+p.content-medium {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: .02em;
+    padding: 16px 0 16px;
+}
+
+h4.content-section {
+    margin-bottom: 8px;
+    margin-top: 24px;
+    color: #24282e;
+    font-weight: 500;
+    line-height: 32px;
+    font-size: 24px;
+    letter-spacing: .01em;
+}
+
+ul.content-section {
+    margin-bottom: 16px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+li.content-section {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    font-size: 18px;
+    text-align: left;
+    color: #53637a;
+}
+
+.push-down {
+    margin-top: 34px;
+}
+
+// BASE STYLES LIBRARY
+.center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pad-down {
+    padding-top: 34px;
+}
+
+.section-divider {
+    height: 1px;
+    background: rgba(111,132,163,.12);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+}
+
+button {
+    margin: 1.4em 0em;
+    padding: 1.1em 4.8em;
+    background-color: $primary;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.2em;
+}
