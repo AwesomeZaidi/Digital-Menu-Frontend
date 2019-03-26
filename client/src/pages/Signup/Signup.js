@@ -9,7 +9,7 @@ class Signup extends Component {
         super(props);
         
         this.state = {
-            fullName: '',
+            fullname: '',
             email: '',
             position: '',
             number: '',
@@ -27,13 +27,19 @@ class Signup extends Component {
         return this.state.email.length > 0 && this.state.password.length > 0 && this.state.fullName.length > 0 && this.state.position.length > 0 && this.state.number.length > 0;
     };
 
-    handleSubmit(event) {
-        event.preventDefault();
+    handleSubmit = e => {
+        console.log("in handleSubmit");        
+        e.preventDefault();
         this.props.signup(this.state);
     };
 
     render() {
-        if (this.props.user) {
+        console.log("in signup render");
+        
+        if (this.props.user && this.props.restaurant == "") {
+            return <Redirect to='/addRestaurant' />
+        } 
+        if (this.props.user && this.props.restaurant != "") {
             return <Redirect to='/dashboard' />
         }
         return (
@@ -73,7 +79,7 @@ class Signup extends Component {
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='fullname'>Your full name</label>
-                                    <input id='fullname' name='fullname' placeholder='Carmen Caliente' value={this.state.fullname} onChange={this.handleChange}></input>
+                                    <input id='fullname' type='text' name='fullname' placeholder='Carmen Caliente' value={this.state.fullname} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='position'>Your position</label>
@@ -105,7 +111,7 @@ class Signup extends Component {
 }
 
 const mapStateToProps = state => {
-    return { user: state.user };
+    return { user: state.user, restaurant: state.restaurant };
 };
 
 function mapDispatchToProps() {
