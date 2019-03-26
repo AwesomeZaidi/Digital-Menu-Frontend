@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { connect } from "react-redux";
-// import { addRestaurant } from '../../redux/actions/index';
+import { addLocation } from '../../redux/actions/index';
 import '../../styles/menu.scss';
 import { Redirect } from 'react-router';
 
@@ -8,13 +8,44 @@ class Dashboard extends Component {
     constructor(props) {
         super(props);
 
-        this.state ={
-            btnClicked: false
-        }
+        this.state = {
+            restaurantLocation: '',
+            food: [{
+                item: "",
+                price: ""
+            },
+            {
+                item: "",
+                price: ""
+            }],
+        };
+        this.addLocation = this.addLocation.bind(this);
     }
-    // addLocation() {
-    //     ;
-    // };
+
+    handleChange = (event) => {   
+        this.setState({ [event.target.id]: event.target.value });     
+    };
+
+    validateForm() {
+        return this.state.restaurantLocation.length > 0;
+    };
+
+    async addLocation() {
+        await this.props.addLocation(this.props.restaurant._id, this.state);
+        this.forceUpdate();
+    };
+
+    addrow() {
+        const tbody = document.getElementById('tbody');
+        const row = `
+            <tr>
+            <td contentEditable></td>
+            <td contentEditable></td>
+            </tr>`;
+
+        tbody.innerHTML += row;
+        
+    }
 
     render() {
         if (!this.props.user) {
@@ -27,51 +58,44 @@ class Dashboard extends Component {
                 
                 <div className='menu-wrapper'>
                     <div className='location-section push-down'>
-                        {this.state.btnClicked ?
-                        <div class='form-group'>
-                            <input class='loc-input' type='text' name='location' id='location' placeholder='Location'></input>
-                        </div> : null}
-                        {/* <p>246 McAllister St San Francisco CA</p>
-                        <p className="active">246 McAllister St San Francisco CA</p>
-                        <p>246 McAllister St San Francisco CA</p>
-                        <p>246 McAllister St San Francisco CA</p>
-                        <p>246 McAllister St San Francisco CA</p>
-                        <p>246 McAllister St San Francisco CA</p> */}
-                        <button onClick={() => this.setState({btnClicked: true})} className='loc-btn'>Add Location</button>
+                        <div className='form-group'>
+                            <input className='loc-input' type='text' name='restaurantLocation' id='restaurantLocation' placeholder='Location' onChange={this.handleChange}></input>
+                        </div>
+                        <button onClick={this.addLocation} className='loc-btn'>Add Location</button>
+                        {this.props.locations ? 
+                            this.props.locations.map(
+                                (location, index) => {
+                                    return (<p key={'mykey' + index}>{location.restaurantLocation}</p>)
+                                }
+                            )
+                        : null
+                        }
                     </div>
 
                     <div className='digital-menu push-down'>
                         <table>
+                        <tbody id='tbody'>
                             <tr>
                                 <th>Item</th>
                                 <th>Price</th>
                             </tr>
-                            <tr>
-                                <td>Alfreds Futterkiste</td>
-                                <td>Maria Anders</td>
-                            </tr>
-                            <tr>
-                                <td>Centro comercial Moctezuma</td>
-                                <td>Francisco Chang</td>
-                            </tr>
-                            <tr>
-                                <td>Ernst Handel</td>
-                                <td>Roland Mendel</td>
-                            </tr>
-                            <tr>
-                                <td>Island Trading</td>
-                                <td>Helen Bennett</td>
-                            </tr>
-                            <tr>
-                                <td>Laughing Bacchus Winecellars</td>
-                                <td>Yoshi Tannamuri</td>
-                            </tr>
-                            <tr>
-                                <td>Magazzini Alimentari Riuniti</td>
-                                <td>Giovanni Rovelli</td>
-                            </tr>
+                            {this.state.food.map((value, index) => (
+                                <tr>
+                                    <td contentEditable>{value.item}</td>
+                                    <td contentEditable>{value.price}</td>
+                                </tr>
+                            ))}
+                            {/* <tr>
+                                <td contentEditable></td>
+                                <td contentEditable></td>
+                            </tr> */}
+                            {/* <tr>
+                                <td contentEditable></td>
+                                <td contentEditable></td>
+                            </tr> */}
+                          </tbody>
                         </table>
-                        <button className='menu-btn'>Add Item</button>
+                        <button onClick={() => this.setState({food: [...this.state.food, {item: "", price:""}]})}className='menu-btn'>Add Item</button>
                     </div>
                 </div>
             </section>
@@ -80,13 +104,13 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-    return { user: state.user, restaurant: state.restaurant };
+    return { user: state.user, restaurant: state.restaurant, locations: state.locations, item: state.items };
 };
 
-// function mapDispatchToProps() {
-//     return {
-//         addRestaurant
-//     };
-// };
+function mapDispatchToProps() {
+    return {
+        addLocation
+    };
+};
 
-export default connect(mapStateToProps, null)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps())(Dashboard);
