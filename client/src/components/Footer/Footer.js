@@ -1,7 +1,7 @@
 import React from "react";
 const Footer = () => (
   <footer className='footer'>
-        <p class='logo' className='advantage-block__title'>Digital Menu</p>
+        <p className='logo' className='advantage-block__title'>Digital Menu</p>
 
         <p>Contact Us</p>
         <p>Sign Up</p>
