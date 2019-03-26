@@ -1,6 +1,6 @@
 // src/js/actions/index.js
 
-import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_ADD_RESTAURANT } from "../constants/action-types";
+import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_ADD_RESTAURANT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
 import axios from "axios";
 
 export function login(loginState) {
@@ -22,7 +22,6 @@ export const handleLogin = (user) => {
 };
 
 export function signup(signupState) {
-    console.log("in signup func");
     console.log("signupState:", signupState);
     return (dispatcher) => {
         axios.post(`https://digitalmenu-intensive.herokuapp.com/users/v0/signup`, signupState).then((res) => {
@@ -43,17 +42,14 @@ export const handleSignup = (user) => {
 
 export const logout = () => {
     return (dispatcher) => {
-        axios.delete(`https://digitalmenu-intensive.herokuapp.com/users/v0/logout`).then(() => {
-            dispatcher(handleLogout());
-        }).catch(console.err);
+        dispatcher(handleLogout());
     }
 };
 
 export const handleLogout = () => {
-    console.log("heaa");
-    
     return {
-        type: HANDLE_LOGOUT
+        type: HANDLE_LOGOUT,
+        payload: ""
     };
 };
 
@@ -75,9 +71,26 @@ export function addRestaurant(restaurantState) {
 };
 
 export const handleAddRestaurant = (restaurant) => {
-    console.log('jere')
     return {
         type: HANDLE_ADD_RESTAURANT,
         payload: restaurant
+    };
+};
+
+export function addLocation(restaurantId, restaurantLocation) {
+    console.log("restaurantId:", restaurantId);
+    console.log("locationState:", restaurantLocation);
+    return async (dispatcher) => {
+        await axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location`, restaurantLocation).then((res) => {
+            console.log("res.data:", res.data);
+            dispatcher(handleAddLocation(res.data));
+        }).catch(console.err);
+    };
+};
+
+export const handleAddLocation = (location) => {
+    return {
+        type: HANDLE_ADD_LOCATION,
+        payload: location
     };
 };

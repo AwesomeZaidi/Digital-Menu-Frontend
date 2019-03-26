@@ -19,7 +19,7 @@ class Nav extends Component {
                 <div>
                   <a href='/dashboard'>Dashboard</a>
                   <a href='/settings'>Settings</a>
-                  <a onClick={this.props.logout}>Logout</a>
+                  <a class='cursor' onClick={this.props.logout}>Logout</a>
                 </div>
                 :       
                 <div>
