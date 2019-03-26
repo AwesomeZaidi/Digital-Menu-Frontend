@@ -35,7 +35,7 @@ class Home extends Component {
 
                         <p className='block__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
 
-                        <a onClick={() => window.location.href = '/signup'} className='block__btn'>Sign up</a>
+                        <a href='/signup' className='block__btn'>Sign up</a>
                     </div>
                     
                     <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
