@@ -1,7 +1,7 @@
 Backend API - https://github.com/jayceazua/digitalMenu
 
 # Digital-Menu-Frontend
-Digital Menu x Restaurant intuitive menu management. (React, Redux, JSX, ES6, Scss, OOCSS3, HTML5, jQuery) (Node, Express Mongo Backend API)
+Digital Menu is a database management platform for restaurants to manage their menus and share with third party applications. (React, Redux, JSX, ES6, Scss, OOCSS3, HTML5, jQuery) (Node, Express Mongo Backend API).
 
 ![](landing-page.png)
 
