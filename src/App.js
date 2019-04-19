@@ -5,7 +5,9 @@ import Signup from "./pages/Signup";
 import NoMatch from "./pages/NoMatch";
 import AddRestaurant from "./pages/AddRestaurant";
 import Dashboard from "./pages/Dashboard";
-import Nav from "./components/Nav";
+import NavBar from "./components/NavBar";
+import SideMenu from "./components/SideMenu";
+
 import Footer from "./components/Footer";
 import './styles/variables.scss'
 import './styles/components.scss';
@@ -13,7 +15,8 @@ import './styles/components.scss';
 const App = () => (
   <Router>
     <div>
-      <Nav />
+      <NavBar />
+      <SideMenu />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={Signup} />
