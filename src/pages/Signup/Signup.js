@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect } from 'react-router';
 import { signup } from '../../redux/actions/index';
-// import logo from '../../Images/logo-only.png';
 
 class Signup extends Component { 
     constructor(props) {

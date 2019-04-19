@@ -4,9 +4,13 @@ import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_ADD_RE
 import axios from "axios";
 
 export function login(loginState) {
+    console.log('loginState:', loginState);
+    
     return (dispatcher) => { // read more into dispatcher
-        axios.post(`https://digitalmenu-intensive.herokuapp.coms/users/v0/login`, loginState).then((res) => {
-            dispatcher(handleLogin(res.data.user)); // THUNKED IT!
+        axios.post(`https://digitalmenu-intensive.herokuapp.com/users/v0/login`, loginState).then((res) => {
+            console.log('res.data:', res.data);
+            
+            dispatcher(handleLogin(res.data));
         }).catch((err) => {
             dispatcher(handleLogin(true));
         });

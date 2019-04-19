@@ -21,7 +21,7 @@ function rootReducer(state = initialState, action) {
     case HANDLE_ERROR:
       return {...state, error: action.payload}
     case HANDLE_LOGOUT:
-      return {...state, user: "", restaurant: "", error: false}
+      return {...state, user: "", restaurant: "", error: false, locations: []}
     case HANDLE_ADD_LOCATION:
       state.locations.push(action.payload);
       return {...state, locations: state.locations}

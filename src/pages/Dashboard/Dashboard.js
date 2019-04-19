@@ -22,6 +22,10 @@ class Dashboard extends Component {
         this.addLocation = this.addLocation.bind(this);
     }
 
+    componentDidMount() {
+        
+    }
+
     handleChange = (event) => {   
         this.setState({ [event.target.id]: event.target.value });     
     };
@@ -44,8 +48,7 @@ class Dashboard extends Component {
             </tr>`;
 
         tbody.innerHTML += row;
-        
-    }
+    };
 
     render() {
         if (!this.props.user) {
@@ -54,7 +57,7 @@ class Dashboard extends Component {
         return (
             <section className='dashboard center'>
                 <h2>{this.props.restaurant.restaurantName}</h2>
-                <p className='content-medium menu-sentence'>Update your restaurant menu across different menus and locations all in one place.</p>
+                <p className='content-medium menu-sentence'>All your menus in one place.</p>
                 
                 <div className='menu-wrapper'>
                     <div className='location-section push-down'>
@@ -62,6 +65,7 @@ class Dashboard extends Component {
                             <input className='loc-input' type='text' name='restaurantLocation' id='restaurantLocation' placeholder='Location' onChange={this.handleChange}></input>
                         </div>
                         <button onClick={this.addLocation} className='loc-btn'>Add Location</button>
+                        {/* display all the restaurant locations if any */}
                         {this.props.locations ? 
                             this.props.locations.map(
                                 (location, index) => {
@@ -74,26 +78,26 @@ class Dashboard extends Component {
 
                     <div className='digital-menu push-down'>
                         <table>
-                        <tbody id='tbody'>
-                            <tr>
-                                <th>Item</th>
-                                <th>Price</th>
-                            </tr>
-                            {this.state.food.map((value, index) => (
+                            <tbody id='tbody'>
                                 <tr>
-                                    <td contentEditable>{value.item}</td>
-                                    <td contentEditable>{value.price}</td>
+                                    <th>Item</th>
+                                    <th>Price</th>
                                 </tr>
-                            ))}
-                            {/* <tr>
-                                <td contentEditable></td>
-                                <td contentEditable></td>
-                            </tr> */}
-                            {/* <tr>
-                                <td contentEditable></td>
-                                <td contentEditable></td>
-                            </tr> */}
-                          </tbody>
+                                {this.state.food.map((value, index) => (
+                                    <tr>
+                                        <td contentEditable>{value.item}</td>
+                                        <td contentEditable>{value.price}</td>
+                                    </tr>
+                                ))}
+                                {/* <tr>
+                                    <td contentEditable></td>
+                                    <td contentEditable></td>
+                                </tr> */}
+                                {/* <tr>
+                                    <td contentEditable></td>
+                                    <td contentEditable></td>
+                                </tr> */}
+                            </tbody>
                         </table>
                         <button onClick={() => this.setState({food: [...this.state.food, {item: "", price:""}]})}className='menu-btn'>Add Item</button>
                     </div>
