@@ -4,6 +4,7 @@ import { addLocation } from '../../redux/actions/index';
 import { Redirect } from 'react-router';
 import AddBtn from '../../components/Buttons/Add';
 import TableContainer from '../../components/Views/TableContainer';
+import '../../styles/locations.scss';
 
 class Locations extends Component {
     constructor(props) {
@@ -16,8 +17,10 @@ class Locations extends Component {
         // }
         return (
             <section className='locations'>
-                <h2>Location</h2>
-                <AddBtn title='Location'/>
+                <div className='table-top-row'>
+                    <h2>Location</h2>
+                    <AddBtn title='Location'/>
+                </div>
                 <TableContainer />             
             </section>
         );

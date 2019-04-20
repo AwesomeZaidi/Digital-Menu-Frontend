@@ -15,6 +15,16 @@ export default class Container extends Component {
                     <td>Maria Anders</td>
                     <td>Germany <EditBtn /></td>
                 </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany <EditBtn /></td>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany <EditBtn /></td>
+                </tr>
                 
             </table>
 
