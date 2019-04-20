@@ -1,6 +1,6 @@
 // src/redux/reducers/index.js
 
-import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_ADD_RESTAURANT, HANDLE_ERROR, HANDLE_LOGOUT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
+import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_GET_RESTAURANTS, HANDLE_ADD_RESTAURANT, HANDLE_ERROR, HANDLE_LOGOUT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
 
 const initialState = {
   user: "",
@@ -15,7 +15,11 @@ function rootReducer(state = initialState, action) {
     case HANDLE_LOGIN:
       return {...state, user: action.payload, error: action.payload_error}
     case HANDLE_SIGNUP:
+      console.log('2');
+      
       return {...state, user: action.payload, error: action.payload_error}
+    case HANDLE_GET_RESTAURANTS:
+      return {...state, restaurant: action.payload}
     case HANDLE_ADD_RESTAURANT:
       return {...state, restaurant: action.payload}
     case HANDLE_ERROR:
