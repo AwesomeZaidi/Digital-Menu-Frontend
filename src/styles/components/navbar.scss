@@ -1,0 +1,15 @@
+header {
+    nav {
+        display: flex;
+        background-color: white;
+        color: black;
+        justify-content: space-between;
+        align-items: center;
+        padding: .1em 2em;
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
