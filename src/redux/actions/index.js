@@ -1,23 +1,19 @@
 // src/js/actions/index.js
 
-import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_ADD_RESTAURANT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
+import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_GET_RESTAURANTS, HANDLE_ADD_RESTAURANT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
 import axios from "axios";
 
 export function login(loginState) {
-    console.log('loginState:', loginState);
-    
-    return (dispatcher) => { // read more into dispatcher
+    return (dispatcher) => {
         axios.post(`https://digitalmenu-intensive.herokuapp.com/users/v0/login`, loginState).then((res) => {
-            console.log('res.data:', res.data);
-            
-            dispatcher(handleLogin(res.data));
+            dispatcher(handleLogin(res.data, false));
         }).catch((err) => {
-            dispatcher(handleLogin(true));
+            dispatcher(handleLogin('', true)); // passing true to payload_error to smoothly show user err msg.
         });
     };
 };
 
-export const handleLogin = (user) => {
+export const handleLogin = (user, error) => {
     return {
         type: HANDLE_LOGIN,
         payload: user,
@@ -26,17 +22,17 @@ export const handleLogin = (user) => {
 };
 
 export function signup(signupState) {
-    console.log("signupState:", signupState);
+    console.log('signupState:', signupState); // why does this get printed twice...
     return (dispatcher) => {
         axios.post(`https://digitalmenu-intensive.herokuapp.com/users/v0/signup`, signupState).then((res) => {
-            console.log("res.data:", res.data);
             dispatcher(handleSignup(res.data));
         }).catch(console.err);
     };
 };
 
 export const handleSignup = (user) => {
-    console.log("in handleSignup");
+    console.log('1');
+    
     return {
         type: HANDLE_SIGNUP,
         payload: user,
@@ -61,6 +57,21 @@ export const handleError = (error) => {
     return {
         type: HANDLE_ERROR,
         payload: error
+    };
+};
+
+export function getRestaurants() {
+    return (dispatcher) => {
+        axios.get(`https://digitalmenu-intensive.herokuapp.com/users/v0/restaurant`).then((res) => {
+            dispatcher(handleGetRestaurants(res.data));
+        }).catch(console.err);
+    };
+}
+
+export const handleGetRestaurants = (restaurant) => {
+    return {
+        type: HANDLE_GET_RESTAURANTS,
+        payload: restaurant
     };
 };
 

@@ -8,7 +8,7 @@ class Signup extends Component {
         super(props);
         
         this.state = {
-            fullname: '',
+            fullName: '',
             email: '',
             position: '',
             number: '',
@@ -27,8 +27,8 @@ class Signup extends Component {
     };
 
     handleSubmit = e => {
-        console.log("in handleSubmit");        
         e.preventDefault();
+        console.log("in handleSubmit"); // why does this get printed twice...   
         this.props.signup(this.state);
     };
 
@@ -77,8 +77,8 @@ class Signup extends Component {
                                     <input id='email' type='email' name='email' placeholder='name@domain.com' value={this.state.email} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor='fullname'>Your full name</label>
-                                    <input id='fullname' type='text' name='fullname' placeholder='Carmen Caliente' value={this.state.fullname} onChange={this.handleChange}></input>
+                                    <label htmlFor='fullName'>Your full name</label>
+                                    <input id='fullName' type='text' name='fullName' placeholder='Carmen Caliente' value={this.state.fullName} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='position'>Your position</label>
