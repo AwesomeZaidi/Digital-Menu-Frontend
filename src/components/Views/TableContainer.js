@@ -1,33 +1,45 @@
 import React, { Component } from 'react';
 import '../../styles/components/views.scss';
 import EditBtn from '../Buttons/Edit';
-export default class Container extends Component {
+import { connect } from 'react-redux';
+
+class TableContainer extends Component {
     render() {
         return (
             <table class='container'>
                 <tr>
-                    <th>Name</th>
+                    {/* <th>{this.props.user}</th> */}
                     <th>Address</th>
                     <th>Menu URL</th>
                 </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany <EditBtn /></td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany <EditBtn /></td>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany <EditBtn /></td>
-                </tr>
+                { this.props.locations ? 
+                    this.props.locations.map(
+                        (location, index) => {
+                            return (
+                                <tr key={'mykey' + index}>
+                                    <td>{location.restaurantLocation}</td>
+                                    <td>Address</td>
+                                    <td>URlhereee <EditBtn /></td>
+                                </tr>
+                            )
+                        }
+                    )
+                    : null
+                }
                 
             </table>
 
         );
-    }
-}
+    };
+};
+
+const mapStateToProps = state => {
+    return {
+        user: state.user,
+        location: state.location
+    };
+};
+
+  
+export default connect(mapStateToProps, null)(TableContainer);
+  

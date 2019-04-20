@@ -1,8 +1,10 @@
+@import '../variables.scss';
+
 header {
     nav {
         display: flex;
-        background-color: white;
-        color: black;
+        background-color: $secondary;
+        color: $text;
         justify-content: space-between;
         align-items: center;
         padding: .1em 2em;
