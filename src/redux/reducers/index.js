@@ -15,8 +15,7 @@ function rootReducer(state = initialState, action) {
     case HANDLE_LOGIN:
       return {...state, user: action.payload, error: action.payload_error}
     case HANDLE_SIGNUP:
-      console.log('2');
-      
+      console.log('now in the root reducer case for HANDLE_SIGNUP');
       return {...state, user: action.payload, error: action.payload_error}
     case HANDLE_GET_RESTAURANTS:
       return {...state, restaurant: action.payload}

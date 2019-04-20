@@ -31,8 +31,7 @@ export function signup(signupState) {
 };
 
 export const handleSignup = (user) => {
-    console.log('1');
-    
+    console.log('in handleSignup dispatcher func now');
     return {
         type: HANDLE_SIGNUP,
         payload: user,
