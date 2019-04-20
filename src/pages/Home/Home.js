@@ -18,31 +18,31 @@ class Home extends Component {
     };
 
     componentDidMount() {
-        // // Get the modal
-        // const modal = document.getElementById('myModal');
+        // Get the modal
+        const modal = document.getElementById('myModal');
 
-        // // Get the button that opens the modal
-        // const loginBtn = document.getElementById("loginBtn");
+        // Get the button that opens the modal
+        const loginBtn = document.getElementById("loginBtn");
 
-        // // Get the <span> element that closes the modal
-        // const span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        const span = document.getElementsByClassName("close")[0];
 
-        // // When the user clicks the button, open the modal 
-        // loginBtn.onclick = function() {
-        //     modal.style.display = "block";
-        // };
+        // When the user clicks the button, open the modal 
+        loginBtn.onclick = function() {
+            modal.style.display = "block";
+        };
 
-        // // When the user clicks on <span> (x), close the modal
-        // span.onclick = function() {
-        //     modal.style.display = "none";
-        // };
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        };
 
-        // // When the user clicks anywhere outside of the modal, close it
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         modal.style.display = "none";
-        //     };
-        // };
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            };
+        };
     };
 
     handleRedirect(page) {
@@ -64,8 +64,8 @@ class Home extends Component {
 
     render() {
         if (this.props.user) {
-            console.log('found user');
-            return <Redirect to='/dashboard'/>
+            console.log('found user on home render');
+            return <Redirect to='/locations'/>
         };
         return (
             <section className='home'>    
@@ -75,7 +75,9 @@ class Home extends Component {
                             {/* <!-- Modal content --> */}
                             <div className="modal-content">
                                 <span className="close">&times;</span>
+
                                 <form className='login-form' onSubmit={this.handleLogin}>
+                                    <p>{this.props.error}</p>
                                     <h4 className='content-section'>Login Form</h4>
                                     <div className='form-group'>
                                         <label htmlFor="email">Your email</label>
@@ -137,7 +139,9 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-    return { user: state.user };
+    return {
+        user: state.user
+    };
 };
 
 function mapDispatchToProps() {
