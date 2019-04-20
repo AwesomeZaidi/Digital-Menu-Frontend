@@ -1,11 +1,13 @@
 
 import React, { Component } from 'react';
-import '../../styles/components/sidemenu.scss'
-export default class SideMenu extends Component {
+import '../../styles/components/sidemenu.scss';
+import { connect } from 'react-redux';
+
+class SideMenu extends Component {
     render() {
         return (
             <div className='sidemenu'>
-                <h4>Restaurant Chain Name</h4>
+                <h4>{this.props.restaurant.restaurantName}</h4>
 
                 <ul>
                     <li className='active'>Locations</li>
@@ -16,3 +18,10 @@ export default class SideMenu extends Component {
         );
     };
 };
+
+const mapStateToProps = state => {
+    return { restaurant: state.restaurant };
+};
+  
+export default connect(mapStateToProps, null)(SideMenu);
+  
