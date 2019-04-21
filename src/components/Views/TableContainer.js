@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 
 class TableContainer extends Component {
     render() {
-        console.log('table continat props locations:', this.props.locations);
-        
         return (
             <table className='container'>
                 <tbody>
                     <tr>
-                        {/* <th>{this.props.user}</th> */}
+                        <th>Name</th>
                         <th>Address</th>
                         <th>Menu URL</th>
                     </tr>
@@ -20,9 +18,9 @@ class TableContainer extends Component {
                             (location, index) => {
                                 return (
                                     <tr key={'mykey' + index}>
+                                        <td>Name whenever backend creates it.</td>
                                         <td>{location.restaurantLocation}</td>
-                                        <td>Address</td>
-                                        <td>URlhereee <EditBtn /></td>
+                                        <td>Unique URL Here <EditBtn /></td>
                                     </tr>
                                 )
                             }
