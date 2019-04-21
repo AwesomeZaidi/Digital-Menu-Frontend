@@ -16,7 +16,7 @@ const HowItWorks = () => (
                 <span className='how-works__step-numb'>3</span>
                 <span className='how-works__step-text'>Other menus will pull your up to date menu from us.</span>
             </li>
-            <a className='block__btn'>Sign up</a>
+            <a href='google.com' className='block__btn'>Sign up</a>
         </ul>
     </div>
 );

@@ -35,11 +35,11 @@ class Signup extends Component {
     render() {
         console.log("in signup render");
         
-        if (this.props.user && this.props.restaurant == "") {
+        if (this.props.user && this.props.restaurant === "") {
             return <Redirect to='/addRestaurant' />
         } 
-        if (this.props.user && this.props.restaurant != "") {
-            return <Redirect to='/dashboard' />
+        if (this.props.user && this.props.restaurant === "") {
+            return <Redirect to='/locations' />
         }
         return (
             <div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../styles/components/navbar.scss';
-import SideMenu from '../SideMenu/'
 import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/index';
 
@@ -12,12 +11,12 @@ class NavBar extends Component {
                     <h1>Digital Menu</h1>
                     { this.props.user ?
                     <div>
-                        <a class='cursor' onClick={this.props.logout}>Logout</a>
+                        <button className='cursor' onClick={this.props.logout}>Logout</button>
                     </div>
                     :       
                     <div>
                         {/* <!-- Trigger/Open The Modal --> */}
-                        <a id="loginBtn">Login</a>
+                        <button className='cursor' id='loginBtn'>Login</button>
                         <a href='/signup'>Signup</a>
                     </div>
                     }
@@ -40,5 +39,5 @@ function mapDispatchToProps() {
     };
 };
   
-export default connect(mapStateToProps, {logout})(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps())(NavBar);
   
