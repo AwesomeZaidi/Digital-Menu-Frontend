@@ -23,7 +23,7 @@ class Locations extends Component {
             <section className='locations'>
                 <div className='table-top-row'>
                     <h2>Manage Locations</h2>
-                    <AddBtn title='Location' restaurantId={this.props.restaurant._id}/> 
+                    <AddBtn title='Location'/> 
                 </div>
                 <TableContainer locations={this.props.locations}/>             
             </section>

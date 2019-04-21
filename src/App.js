@@ -7,6 +7,7 @@ import AddRestaurant from "./pages/AddRestaurant";
 import Locations from "./pages/Locations";
 import NavBar from "./components/NavBar";
 import SideMenu from "./components/SideMenu";
+import AddLocation from "./components/Forms/AddLocation";
 import './styles/variables.scss'
 import './styles/components.scss';
 
@@ -20,6 +21,7 @@ const App = () => (
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/addRestaurant" component={AddRestaurant} />
         <Route exact path="/locations" component={Locations} />
+        <Route exact path="/addLocation" component={AddLocation} />
         <Route component={NoMatch} />
       </Switch>
     </div>
