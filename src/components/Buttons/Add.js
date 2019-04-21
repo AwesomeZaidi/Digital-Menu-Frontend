@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Add extends Component {
     render() {
+        const link = `/${this.props.restaurantId}/addLocation`
         return (
-            <button>Add {this.props.title}</button>
+            <Link to={link}>Add {this.props.title}</Link>
         );
     };
 };
