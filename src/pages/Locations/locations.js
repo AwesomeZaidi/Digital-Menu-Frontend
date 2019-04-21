@@ -1,19 +1,18 @@
 import React, { Component} from 'react';
 import { connect } from "react-redux";
 
-import { getRestaurants, addLocation } from '../../redux/actions/index';
+import { getRestaurantLocations, addLocation } from '../../redux/actions/index';
 import { Redirect } from 'react-router';
 import AddBtn from '../../components/Buttons/Add';
 import TableContainer from '../../components/Views/TableContainer';
 import '../../styles/locations.scss';
 
 class Locations extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount = () => {
-        this.props.getRestaurants();
+        console.log('this.props.restaurant:', this.props.restaurant);
+        
+        this.props.getRestaurantLocations(this.props.restaurant._id);
     }
 
     render() {
@@ -26,7 +25,7 @@ class Locations extends Component {
                     <h2>Location</h2>
                     <AddBtn title='Location'/>
                 </div>
-                <TableContainer />             
+                <TableContainer locations={this.props.locations}/>             
             </section>
         );
     }
@@ -34,14 +33,14 @@ class Locations extends Component {
 
 const mapStateToProps = state => {
     return { user: state.user,
-            restaurants: state.restaurant,
+            restaurant: state.restaurant,
             locations: state.locations,
     };
 };
 
 function mapDispatchToProps() {
     return {
-        getRestaurants,
+        getRestaurantLocations,
         addLocation
     };
 };

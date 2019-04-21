@@ -1,6 +1,6 @@
 // src/js/actions/index.js
 
-import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_GET_RESTAURANTS, HANDLE_ADD_RESTAURANT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
+import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_GET_RESTAURANT_LOCATIONS, HANDLE_ADD_RESTAURANT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
 import axios from "axios";
 
 export function login(loginState) {
@@ -59,18 +59,22 @@ export const handleError = (error) => {
     };
 };
 
-export function getRestaurants() {
+export function getRestaurantLocations(restaurantId) {
+    console.log('in func');
+    
     return (dispatcher) => {
-        axios.get(`https://digitalmenu-intensive.herokuapp.com/users/v0/restaurant`).then((res) => {
-            dispatcher(handleGetRestaurants(res.data));
+        axios.get(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location`).then((res) => {
+            console.log('res.data:', res.data);
+            
+            dispatcher(handleGetRestaurantLocations(res.data));
         }).catch(console.err);
     };
 }
 
-export const handleGetRestaurants = (restaurant) => {
+export const handleGetRestaurantLocations = (locations) => {
     return {
-        type: HANDLE_GET_RESTAURANTS,
-        payload: restaurant
+        type: HANDLE_GET_RESTAURANT_LOCATIONS,
+        payload: locations
     };
 };
 
