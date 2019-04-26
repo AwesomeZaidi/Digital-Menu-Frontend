@@ -31,7 +31,7 @@ class AddRestaurant extends Component {
 
     render() {
         if (this.props.user && this.props.restaurant !== "") {
-            return <Redirect to='/dashboard' />
+            return <Redirect to='/locations' />
         }
         if (!this.props.user) {
             return <Redirect to='/signup' />
