@@ -11,7 +11,7 @@ class NavBar extends Component {
                     <h1>Digital Menu</h1>
                     { this.props.user ?
                     <div>
-                        <button className='cursor' onClick={this.props.logout}>Logout</button>
+                        <p className='cursor' onClick={this.props.logout}>Logout</p>
                     </div>
                     :       
                     <div>
