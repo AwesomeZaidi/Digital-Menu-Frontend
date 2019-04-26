@@ -20,7 +20,7 @@ class TableContainer extends Component {
                                     <tr key={'mykey' + index}>
                                         <td>Name whenever backend creates it.</td>
                                         <td>{location.restaurantLocation}</td>
-                                        <td>Unique URL Here <EditBtn /></td>
+                                        <td>Unique URL Here <EditBtn locationId={location._id}/></td>
                                     </tr>
                                 )
                             }
