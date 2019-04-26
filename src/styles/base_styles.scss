@@ -1,11 +1,49 @@
 @import './variables.scss';
 
-button {
-    margin: 1.4em 0em;
-    padding: 1.1em 4.8em;
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: $secondary;
+    margin: 0;
+    padding: 0;
+}
+
+button, %button {
+    // margin: 1.4em 0em;
+    padding: .6em 2.2em;
     background-color: $primary_action;
+    color: $secondary;
     border: none;
     border-radius: 8px;
-    color: $secondary;
+    // color: $secondary;
     font-size: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn_primary {
+    @extend %button;    
+}
+
+.btn_save {
+    @extend %bg_color_animate_smooth; 
+    @extend %button;
+    background-color: $save;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn_save:hover {
+    background-color: rgb(80, 155, 0);
+}
+
+.line {
+    display: block;
+    overflow: hidden;
+    margin: 8em -2em 2em -2em;
+    border-style: inset;
+    border-width: .9px;
 }
