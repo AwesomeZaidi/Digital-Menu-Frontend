@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+
 import '../../styles/locations.scss';
 
 
 export default class AddLocation extends Component {
-    render() {
 
+    
+    render() {
+        if (!this.props.user) {
+            return <Redirect to='/'/>
+        }
         return (
             <div class='locations add-form'>
                     <p class='table-header'>Add Location</p>
