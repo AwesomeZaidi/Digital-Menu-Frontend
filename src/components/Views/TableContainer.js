@@ -20,7 +20,7 @@ class TableContainer extends Component {
                                     <tr key={'mykey' + index}>
                                         <td>Name whenever backend creates it.</td>
                                         <td>{location.restaurantLocation}</td>
-                                        <td>Unique URL Here <EditBtn locationId={location._id}/></td>
+                                        <td>Unique URL Here <EditBtn restaurantId={this.props.restaurant._id} locationId={location._id}/></td>
                                     </tr>
                                 )
                             }
@@ -37,7 +37,8 @@ class TableContainer extends Component {
 const mapStateToProps = state => {
     return {
         user: state.user,
-        location: state.location
+        location: state.location,
+        restaurant: restaurant
     };
 };
 

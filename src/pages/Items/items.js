@@ -9,7 +9,7 @@ import '../../styles/locations.scss';
 class Items extends Component {
 
     componentDidMount = () => {
-        this.props.getRestaurantLocationItems(this.props.location._id);
+        this.props.getRestaurantLocationItems(this.props.restaurant._id, this.props.location._id);
     }
 
     render() {

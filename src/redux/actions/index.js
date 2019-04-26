@@ -1,6 +1,10 @@
 // src/js/actions/index.js
 
-import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR, HANDLE_GET_RESTAURANT_LOCATIONS, HANDLE_ADD_RESTAURANT, HANDLE_ADD_LOCATION, HANDLE_GET_ITEMS } from "../constants/action-types";
+import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR,
+        HANDLE_GET_RESTAURANT_LOCATIONS, HANDLE_ADD_RESTAURANT,
+        HANDLE_ADD_LOCATION,
+        HANDLE_GET_ITEMS, HANDLE_ADD_ITEM, HANDLE_EDIT_ITEM, HANDLE_REMOVE_ITEM
+    } from "../constants/action-types";
 import axios from "axios";
 
 export function login(loginState) {
@@ -31,7 +35,6 @@ export function signup(signupState) {
 };
 
 export const handleSignup = (user) => {
-    console.log('in handleSignup dispatcher func now');
     return {
         type: HANDLE_SIGNUP,
         payload: user,
@@ -60,12 +63,8 @@ export const handleError = (error) => {
 };
 
 export function getRestaurantLocations(restaurantId) {
-    console.log('in func');
-    
     return (dispatcher) => {
         axios.get(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location`).then((res) => {
-            console.log('res.data:', res.data);
-            
             dispatcher(handleGetRestaurantLocations(res.data));
         }).catch(console.err);
     };
@@ -79,10 +78,8 @@ export const handleGetRestaurantLocations = (locations) => {
 };
 
 export function addRestaurant(restaurantState) {
-    console.log("restaurantState:", restaurantState);
     return (dispatcher) => {
         axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant`, restaurantState).then((res) => {
-            console.log("res.dataa:", res.data);
             dispatcher(handleAddRestaurant(res.data));
         }).catch(console.err);
     };
@@ -96,8 +93,6 @@ export const handleAddRestaurant = (restaurant) => {
 };
 
 export function addLocation(restaurantId, restaurantLocation) {
-    console.log("restaurantId:", restaurantId);
-    console.log("locationState:", restaurantLocation);
     return async (dispatcher) => {
         await axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location`, restaurantLocation).then((res) => {
             console.log("res.data:", res.data);
@@ -110,5 +105,21 @@ export const handleAddLocation = (location) => {
     return {
         type: HANDLE_ADD_LOCATION,
         payload: location
+    };
+};
+
+export function getRestaurantLocationItems(restaurantId, locationId) {
+    return async (dispatcher) => {
+        await axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location/${locationId}`, restaurantLocation).then((res) => {
+            console.log("res.data:", res.data);
+            dispatcher(handleGetRestaurantLocationItems(res.data));
+        }).catch(console.err);
+    };
+};
+
+export const handleGetRestaurantLocationItems = (items) => {
+    return {
+        type: HANDLE_GET_ITEMS,
+        payload: items
     };
 };
