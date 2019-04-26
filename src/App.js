@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/Signup";  
 import NoMatch from "./pages/NoMatch";
 import AddRestaurant from "./pages/AddRestaurant";
+import Items from "./pages/Items";
 import Locations from "./pages/Locations";
 import NavBar from "./components/NavBar";
 import SideMenu from "./components/SideMenu";
@@ -22,6 +23,7 @@ const App = () => (
         <Route exact path="/addRestaurant" component={AddRestaurant} />
         <Route exact path="/locations" component={Locations} />
         <Route exact path="/addLocation" component={AddLocation} />
+        <Route exact path="/location/:locationId/items" component={Items} />        
         <Route component={NoMatch} />
       </Switch>
     </div>
