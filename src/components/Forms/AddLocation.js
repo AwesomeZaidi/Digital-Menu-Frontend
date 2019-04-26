@@ -1,21 +1,52 @@
 import React, { Component } from 'react';
+import '../../styles/locations.scss';
+
 
 export default class AddLocation extends Component {
     render() {
 
         return (
-            <div class='add-form'>
+            <div class='locations add-form'>
+                    <p class='table-header'>Add Location</p>
                 <form>
-                    <legend>Add Location</legend>
+                    <div className='form-inputs'>
+                        <div class='form-row'>
+                            <div className='form-group'>
+                                <label>Location Name</label>
+                                <input placeholder='Name'></input>
+                            </div>
 
-                    <input placeholder='Name'></input>
-                    <input placeholder='Street Address'></input>
-                    <input placeholder='Zipcode'></input>
-                    <input placeholder='State'></input>
-                    <input placeholder='Country'></input>
-                    <input placeholder='Contact Number'></input>  
+                            <div className='form-group'>
+                                <label>Street Address</label>
+                                <input placeholder='Street Address'></input>
+                            </div>
 
-                    <button>Add Location</button>                  
+                            <div className='form-group'>
+                                <label>State</label>
+                                <input placeholder='State'></input>
+                            </div>
+                        </div>
+
+                        <div class='form-row'>
+                            <div class='form-group'>
+                                <label>Location Number</label>
+                                <input placeholder='(000) 000 0000'></input>
+                            </div>
+
+                            <div class='form-group'>
+                                <label>City</label>
+                                <input placeholder='City'></input>
+                            </div>
+
+                            <div class='form-group'>
+                                <label>Zipcode</label>
+                                <input placeholder='Zipcode'></input>
+                            </div>
+                        </div>
+                        <div class='line'></div>
+                        <button className='btn_save'>Save Changes</button>                    
+                    </div>      
+
                 </form>
             </div>
         );

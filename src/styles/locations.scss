@@ -1,11 +1,17 @@
+@import './variables.scss';
+@import './components.scss';
+
 .locations {
     display: flex;
     flex-direction: column;
 }
 .table-top-row {
     display: flex;
-    justify-content: space-between;   
-    // width: 100vw;
+    justify-content: space-between;  
+    button {
+        margin: 1em;
+        height: 2.6em;
+    }
 }
 
 table {
@@ -22,4 +28,37 @@ td, th {
   
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+.table-header {
+    margin: auto .2em;
+    font-size: 1.6em;
+    font-weight: 200;
+}
+
+.add-form {
+    padding: 3em 2em;
+    height: 16em;
+    .form-inputs {
+        margin-top: 1em;
+        background-color: $secondary;
+        padding: .4em 2em 2em 2em;
+        border-radius: 8px;
+        .form-row {
+            display: flex;
+            flex-direction: row;
+            .form-group {
+                margin: 1em 1em;
+                label {
+                    color: $text;
+                    font-weight: 200;
+                }
+                input {
+                    background-color: $background;
+                    width: 14em;
+                    margin-right: 2em;
+                }
+            }
+        }
+    }
 }

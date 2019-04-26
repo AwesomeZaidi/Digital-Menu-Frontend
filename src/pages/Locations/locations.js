@@ -10,8 +10,6 @@ import '../../styles/locations.scss';
 class Locations extends Component {
 
     componentDidMount = () => {
-        console.log('this.props.restaurant:', this.props.restaurant);
-        
         this.props.getRestaurantLocations(this.props.restaurant._id);
     }
 
@@ -22,7 +20,7 @@ class Locations extends Component {
         return (
             <section className='locations'>
                 <div className='table-top-row'>
-                    <h2>Manage Locations</h2>
+                    <p class='table-header'>Manage Locations</p>
                     <AddBtn title='Location'/> 
                 </div>
                 <TableContainer locations={this.props.locations}/>             
