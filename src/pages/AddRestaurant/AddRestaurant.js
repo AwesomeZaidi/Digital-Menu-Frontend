@@ -26,7 +26,6 @@ class AddRestaurant extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.addRestaurant(this.state);
-
     };
 
     render() {

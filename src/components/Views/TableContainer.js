@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../../styles/components/views.scss';
 import EditBtn from '../Buttons/Edit';
 import { connect } from 'react-redux';
 
