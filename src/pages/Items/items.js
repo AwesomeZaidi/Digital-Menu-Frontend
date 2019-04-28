@@ -1,15 +1,16 @@
 import React, { Component} from 'react';
 import { connect } from "react-redux";
-import { getRestaurantLocationItems, addItem, editItem, deleteItem } from '../../redux/actions/index';
+// import { getRestaurantLocationItems, addItem, editItem, deleteItem } from '../../redux/actions/index';
+import { getRestaurantLocationItems } from '../../redux/actions/index';
 import { Redirect } from 'react-router';
-import AddBtn from '../../components/Buttons/Add';
-import ItemsContainer from '../../components/Views/ItemsContainer';
+import EditBtn from '../../components/Buttons/Edit';
+import ItemsContainer from '../../components/Views/ItemsTable';
 import '../../styles/locations.scss';
 
 class Items extends Component {
 
-    componentDidMount = () => {
-        this.props.getRestaurantLocationItems(this.props.restaurant._id, this.props.location._id);
+    componentWillMount = () => {
+        this.props.getRestaurantLocationItems(this.props.restaurant._id, this.props.match.params.locationId);
     }
 
     render() {
@@ -17,10 +18,10 @@ class Items extends Component {
             return <Redirect to='/'/>
         }
         return (
-            <section className='items'>
+            <section className='table-page'>
             <div className='table-top-row'>
-                <p class='table-header'>Update Location {this.props.location.title} Items</p>
-                <AddBtn title='Location'/> 
+                <p className='table-header'>Update Location {this.props.location.title} Items</p>
+                <EditBtn title='Location Info'/> 
             </div>
             <ItemsContainer locations={this.props.locations}/>             
         </section>
@@ -31,17 +32,16 @@ class Items extends Component {
 
 const mapStateToProps = state => {
     return { user: state.user,
-            restaurant: state.restaurant,
-            location: state.location,
+            restaurant: state.restaurant
     };
 };
 
 function mapDispatchToProps() {
     return {
         getRestaurantLocationItems,
-        addItem,
-        editItem,
-        removeItem
+        // addItem,
+        // editItem,
+        // removeItem
     };
 };
 

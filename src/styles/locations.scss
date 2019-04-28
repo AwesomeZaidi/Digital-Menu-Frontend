@@ -1,13 +1,16 @@
 @import './variables.scss';
 @import './components.scss';
 
-.locations {
+.table-page {
     display: flex;
     flex-direction: column;
+    max-width: 85%;
+    margin: 0 auto;
 }
 .table-top-row {
     display: flex;
-    justify-content: space-between;  
+    justify-content: space-between; 
+     
     button {
         margin: 1em;
         height: 2.6em;

@@ -110,8 +110,7 @@ export const handleAddLocation = (location) => {
 
 export function getRestaurantLocationItems(restaurantId, locationId) {
     return async (dispatcher) => {
-        await axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location/${locationId}`, restaurantLocation).then((res) => {
-            console.log("res.data:", res.data);
+        await axios.get(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location/${locationId}`).then((res) => {
             dispatcher(handleGetRestaurantLocationItems(res.data));
         }).catch(console.err);
     };

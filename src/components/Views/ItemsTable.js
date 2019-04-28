@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EditBtn from '../Buttons/Edit';
+import Add from '../Buttons/Add';
 
-export default class  extends Component {
+class ItemsTable extends Component {
     render() {
         return (
             <table className='container'>
@@ -24,7 +25,7 @@ export default class  extends Component {
                             )
                         }
                     )
-                    : null
+                    : <Add/>
                 }
             </tbody>
         </table>
@@ -34,7 +35,6 @@ export default class  extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user,
         location: state.location
     };
 };

@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { connect } from "react-redux";
-
+import { Link } from 'react-router-dom';
 import { getRestaurantLocations, addLocation } from '../../redux/actions/index';
 import { Redirect } from 'react-router';
 import AddBtn from '../../components/Buttons/Add';
@@ -18,10 +18,10 @@ class Locations extends Component {
             return <Redirect to='/'/>
         }
         return (
-            <section className='locations'>
+            <section className='table-page'>
                 <div className='table-top-row'>
-                    <p class='table-header'>Manage Locations</p>
-                    <AddBtn title='Location'/> 
+                    <p className='table-header'>Manage Locations</p>
+                    <AddBtn title='Location'/>
                 </div>
                 <TableContainer locations={this.props.locations}/>             
             </section>
