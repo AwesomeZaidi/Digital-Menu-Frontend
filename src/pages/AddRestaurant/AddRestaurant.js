@@ -31,7 +31,8 @@ class AddRestaurant extends Component {
 
     render() {
         if (this.props.user && this.props.restaurant !== "") {
-            return <Redirect to='/locations' />
+            const url = `/restaurant/${this.props.restaurant._id}/locations`
+            return <Redirect to={url} />
         }
         if (!this.props.user) {
             return <Redirect to='/signup' />
@@ -46,25 +47,24 @@ class AddRestaurant extends Component {
                         {/* <h2 className='content-section'>Sign up. Manage your menus.<br></br>Avoid issues.</h2> */}
                         <h4 className='content-section'>Restaurant information</h4>
                         <p className='content-section'>Add your restaurant information here to access the full Digital Menu.</p>
+                        <div className='push-down'></div>
+                        <div className="section-divider"></div>
+                        <div className='pad-down'></div>
 
-                            <div className='push-down'></div>
-                            <div className="section-divider"></div>
-                            <div className='pad-down'></div>
+                        <form onSubmit={this.handleSubmit} className='top-down-left'>
+                            <div className='form-group'>
+                                <label htmlFor='restaurantName'>Restaurant name</label>
+                                <input id='restaurantName' type='text' name='restaurantName' placeholder='Restaurant Name' value={this.state.restaurantName} onChange={this.handleChange}></input>
+                            </div>
+                            <p>We may contact you between 11 AM and 5 PM Eastern</p>
 
-                            <form onSubmit={this.handleSubmit} className='top-down-left'>
-                                <div className='form-group'>
-                                    <label htmlFor='restaurantName'>Restaurant name</label>
-                                    <input id='restaurantName' type='text' name='restaurantName' placeholder='Restaurant Name' value={this.state.restaurantName} onChange={this.handleChange}></input>
-                                </div>
-                                <p>We may contact you between 11 AM and 5 PM Eastern</p>
+                            {/* <h2>Restaurant information</h2>
+                            <p>Tell us about your restaurant. No matter where you are we can make your menu digital and better.</p> */}
 
-                                {/* <h2>Restaurant information</h2>
-                                <p>Tell us about your restaurant. No matter where you are we can make your menu digital and better.</p> */}
-
-                                {/* <label for='number'>Your contact phone</label>
-                                <input name='number' placeholder='(123)-345-6789'></input> */}
-                                <button type='submit'>Add Restaurant</button>
-                            </form>
+                            {/* <label for='number'>Your contact phone</label>
+                            <input name='number' placeholder='(123)-345-6789'></input> */}
+                            <button type='submit'>Add Restaurant</button>
+                        </form>
                     </div>
                 </section>
             </div>
