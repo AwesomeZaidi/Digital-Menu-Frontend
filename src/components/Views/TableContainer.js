@@ -18,10 +18,9 @@ class TableContainer extends Component {
                             (location, index) => {
                                 return (
                                     <tr key={'mykey' + index}>
-                                        <td>Name whenever backend creates it.</td>
-
-                                        <td>{location.restaurantLocation}</td>
-                                        <td>Unique URL Here <EditBtn restaurantId={this.props.restaurant._id} locationId={location._id}/></td>
+                                        <td>{location.locationName}</td>
+                                        <td>{location.streetAddress}</td>
+                                        <td><a className='cursor'>https://digitalmenu.com/restaurants/{this.props.restaurant._id + '/locations/' + location._id}/items</a><EditBtn restaurantId={this.props.restaurant._id} locationId={location._id}/></td>
                                     </tr>
                                 )
                             }
