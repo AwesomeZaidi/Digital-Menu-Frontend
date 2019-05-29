@@ -36,9 +36,6 @@ class Signup extends Component {
         if (this.props.user && this.props.restaurant === "") {
             return <Redirect to='/addRestaurant' />
         } 
-        if (this.props.user && this.props.restaurant === "") {
-            return <Redirect to='/locations' />
-        }
         return (
             <div>
                 <div className='hero-section'>
