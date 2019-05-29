@@ -12,7 +12,7 @@ const initialState = {
   locations: [],
   error: false,
   items: [],
-  location: 0 // this will hold the location object with it's specific details
+  location: ''
 };
 
 function rootReducer(state = initialState, action) {
@@ -33,7 +33,7 @@ function rootReducer(state = initialState, action) {
       return {...state, user: "", restaurant: "", error: false, locations: [], items:0, location:0}
     case HANDLE_ADD_LOCATION:
       state.locations.push(action.payload);
-      return {...state, locations: state.locations}
+      return {...state, locations: state.locations, location: action.payload}
     case HANDLE_GET_ITEMS:
       state.items.push(action.payload);
       return {...state, items: state.items}
