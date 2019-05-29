@@ -8,10 +8,11 @@ class Signup extends Component {
         super(props);
         
         this.state = {
-            fullName: '',
+            firstName: '',
+            lastName: '',
             email: '',
+            phoneNumber: '',
             position: '',
-            number: '',
             password: ''
         };
 
@@ -23,18 +24,15 @@ class Signup extends Component {
     };
 
     validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0 && this.state.fullName.length > 0 && this.state.position.length > 0 && this.state.number.length > 0;
+        return this.state.email.length > 0 && this.state.password.length > 0 && this.state.firstName.length > 0 && this.state.position.length > 0 && this.state.number.length > 0;
     };
 
     handleSubmit = e => {
-        e.preventDefault();
-        console.log("in handleSubmit"); // why does this get printed twice...   
+        e.preventDefault();  
         this.props.signup(this.state);
     };
 
     render() {
-        console.log("in signup render");
-        
         if (this.props.user && this.props.restaurant === "") {
             return <Redirect to='/addRestaurant' />
         } 
@@ -47,7 +45,7 @@ class Signup extends Component {
                     <h1 className='center'>Join the Pilot Program now</h1>
                 </div>
                 <section className='signup form-wrapper'>                
-                    <div className='user-form' onSubmit={this.handleSubmit}>
+                    <div className='user-form'>
                         <h2 className='content-section'>Sign up. Manage your menus.<br></br>Avoid issues.</h2>
                         <p className='content-section'>Now’s your chance to get your free digital menu. There’s no better way to connect all your digital menus,
                             never have wrong listed prices again, and bring in more business.
@@ -73,20 +71,24 @@ class Signup extends Component {
 
                             <form onSubmit={this.handleSubmit} className='top-down-left'>
                                 <div className='form-group'>
+                                    <label htmlFor='firstName'>First name</label>
+                                    <input id='firstName' type='text' name='firstName' placeholder='Carmen' value={this.state.firstName} onChange={this.handleChange}></input>
+                                </div>
+                                <div className='form-group'>
+                                    <label htmlFor='lastName'>Last name</label>
+                                    <input id='lastName' type='text' name='lastName' placeholder='Caliente' value={this.state.lastName} onChange={this.handleChange}></input>
+                                </div>
+                                <div className='form-group'>
                                     <label htmlFor='email'>Your email</label>
                                     <input id='email' type='email' name='email' placeholder='name@domain.com' value={this.state.email} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
-                                    <label htmlFor='fullName'>Your full name</label>
-                                    <input id='fullName' type='text' name='fullName' placeholder='Carmen Caliente' value={this.state.fullName} onChange={this.handleChange}></input>
+                                    <label htmlFor='phoneNumber'>Phone Number</label>
+                                    <input id='phoneNumber' type='phone' name='phoneNumber' placeholder='123 123 1234' value={this.state.phoneNumber} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='position'>Your position</label>
                                     <input id='position' name='position' placeholder='Position' value={this.state.position} onChange={this.handleChange}></input>
-                                </div>
-                                <div className='form-group'>
-                                    <label htmlFor='number'>Your contact phone</label>
-                                    <input id='number' name='number' placeholder='(123)-345-6789' value={this.state.number} onChange={this.handleChange}></input>
                                 </div>
                                 <div className='form-group'>
                                     <label htmlFor='password'>Password</label>
@@ -100,7 +102,7 @@ class Signup extends Component {
 
                                 {/* <label for='number'>Your contact phone</label>
                                 <input name='number' placeholder='(123)-345-6789'></input> */}
-                                <button type='submit'>Join Digital Menu</button>
+                                <button onClick={this.handleSubmit} type='submit'>Join Digital Menu</button>
                             </form>
                     </div>
                 </section>
