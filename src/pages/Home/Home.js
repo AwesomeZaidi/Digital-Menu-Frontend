@@ -2,7 +2,7 @@ import React, { Component} from 'react';
 import HowItWorks from '../../components/HowItWorks';
 import { Redirect } from 'react-router';
 import { connect } from "react-redux";
-import { login } from '../../redux/actions/index';
+import { login, clearError } from '../../redux/actions/index';
 
 import "../../styles/home.scss";
 import '../../styles/components/login_modal.scss';
@@ -18,6 +18,9 @@ class Home extends Component {
     };
 
     componentDidMount() {
+
+        this.props.clearError(false);
+
         // Get the modal
         const modal = document.getElementById('myModal');
 
@@ -70,29 +73,29 @@ class Home extends Component {
         return (
             <section className='home'>    
                 <div>
-                        {/* <!-- The Modal --> */}
-                        <div id="myModal" className="modal">
-                            {/* <!-- Modal content --> */}
-                            <div className="modal-content">
-                                <span className="close">&times;</span>
+                    {/* <!-- The Modal --> */}
+                    <div id="myModal" className="modal">
+                        {/* <!-- Modal content --> */}
+                        <div className="modal-content">
+                            <span className="close">&times;</span>
 
-                                <form className='login-form' onSubmit={this.handleLogin}>
-                                    <p>{this.props.error}</p>
-                                    <h4 className='content-section'>Login Form</h4>
-                                    <div className='form-group'>
-                                        <label htmlFor="email">Your email</label>
-                                        <input id="email" type="email" name="email" placeholder="name@domain.com" value={this.state.email} onChange={this.handleChange}/>
-                                    </div>
-                                    <div className='form-group'>
-                                        <label htmlFor="password">Your Password</label>
-                                        <input id="password" type="password" name="password" placeholder="**********" value={this.state.password} onChange={this.handleChange} />
-                                    </div>
-                                    <button type='submit'>Login</button>
-                                    <p>Don't have an account?</p>
-                                </form>
-                            </div>
+                            <form className='login-form' onSubmit={this.handleLogin}>
+                                <h4 className='content-section'>Login Form</h4>
+                                {this.props.error === true ? <p className='p_error'><strong>Wrong email or password</strong></p> : <p>no err</p> }
+                                <div className='form-group'>
+                                    <label htmlFor="email">Your email</label>
+                                    <input id="email" type="email" name="email" placeholder="name@domain.com" value={this.state.email} onChange={this.handleChange}/>
+                                </div>
+                                <div className='form-group'>
+                                    <label htmlFor="password">Your Password</label>
+                                    <input id="password" type="password" name="password" placeholder="**********" value={this.state.password} onChange={this.handleChange} />
+                                </div>
+                                <button type='submit'>Login</button>
+                                <p>Don't have an account?</p>
+                            </form>
                         </div>
-                    </div>              
+                    </div>
+                </div>              
                 {/* TOP */}
                 <div className='top'>
                     <div className='left-content section-side-padding'>
@@ -104,13 +107,13 @@ class Home extends Component {
                     </div>
                     
                     <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
-                        <img src='./assets/images/doordash.png'></img>
-                        <img src='./assets/images/grubhub.png'></img>
-                        <img src='./assets/images/uber.png'></img>
-                        <img src='./assets/images/yelp.png'></img>
-                        <img src='./assets/images/postmates.png'></img>
-                        <img src='./assets/images/opentable.png'></img>
-                        <img src='./assets/images/google.png'></img>
+                        <img src='./assets/images/doordash.png' alt='pic'></img>
+                        <img src='./assets/images/grubhub.png' alt='pic'></img>
+                        <img src='./assets/images/uber.png' alt='pic'></img>
+                        <img src='./assets/images/yelp.png' alt='pic'></img>
+                        <img src='./assets/images/postmates.png' alt='pic'></img>
+                        <img src='./assets/images/opentable.png' alt='pic'></img>
+                        <img src='./assets/images/google.png' alt='pic'></img>
                     </div>
                 </div>
 
@@ -140,13 +143,15 @@ class Home extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: state.user,
+        error: state.error
     };
 };
 
 function mapDispatchToProps() {
     return {
-        login
+        login,
+        clearError
     };
 };
 

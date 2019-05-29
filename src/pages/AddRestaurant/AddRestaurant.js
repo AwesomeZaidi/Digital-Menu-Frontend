@@ -5,6 +5,7 @@ import { addRestaurant } from '../../redux/actions/index';
 
 class AddRestaurant extends Component { 
     constructor(props) {
+        
         super(props);
         
         this.state = {
