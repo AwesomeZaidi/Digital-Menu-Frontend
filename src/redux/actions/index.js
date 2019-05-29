@@ -2,56 +2,54 @@
 
 import { HANDLE_LOGIN, HANDLE_SIGNUP, HANDLE_LOGOUT, HANDLE_ERROR,
         HANDLE_GET_RESTAURANT_LOCATIONS, HANDLE_ADD_RESTAURANT,
-        HANDLE_ADD_LOCATION,
+        HANDLE_GET_LOCATION, HANDLE_ADD_LOCATION,
         HANDLE_GET_ITEMS, HANDLE_ADD_ITEM, HANDLE_EDIT_ITEM, HANDLE_REMOVE_ITEM
     } from "../constants/action-types";
 import axios from "axios";
 
+const baseUrl = `http://localhost:3000`;
+// const baseUrl = `https://digitalmenu-intensive.herokuapp.com`;
+
 export function login(loginState) {
     return (dispatcher) => {
-        axios.post(`https://digitalmenu-intensive.herokuapp.com/users/v0/login`, loginState).then((res) => {
-            dispatcher(handleLogin(res.data, false));
-        }).catch((err) => {
-            dispatcher(handleLogin('', true)); // passing true to payload_error to smoothly show user err msg.
+        axios.post(`${baseUrl}/users/v0/login`, loginState).then((res) => {
+            console.log('res.data:', res.data);   
+            dispatcher(handleLogin(res.data));
+        }).catch(() => {
+            dispatcher(handleError(true)); // passing true to payload_error to smoothly show user err msg.
         });
     };
 };
 
-export const handleLogin = (user, error) => {
+export const handleLogin = (user) => {
     return {
         type: HANDLE_LOGIN,
-        payload: user,
-        payload_error: false
+        payload: user
     };
 };
 
 export function signup(signupState) {
-    console.log('signupState:', signupState); // why does this get printed twice...
     return (dispatcher) => {
-        axios.post(`https://digitalmenu-intensive.herokuapp.com/users/v0/signup`, signupState).then((res) => {
+        axios.post(`${baseUrl}/users/v0/signup`, signupState).then((res) => {
+            console.log('res.data:', res.data);
             dispatcher(handleSignup(res.data));
-        }).catch(console.err);
+        }).catch((err) => {
+            console.log(err);
+            dispatcher(handleError(true));
+        });
     };
 };
 
 export const handleSignup = (user) => {
     return {
         type: HANDLE_SIGNUP,
-        payload: user,
-        payload_error: false
+        payload: user
     };
 };
 
-export const logout = () => {
+export function clearError(errorStatus) {
     return (dispatcher) => {
-        dispatcher(handleLogout());
-    }
-};
-
-export const handleLogout = () => {
-    return {
-        type: HANDLE_LOGOUT,
-        payload: ""
+        dispatcher(handleError(errorStatus));
     };
 };
 
@@ -62,24 +60,25 @@ export const handleError = (error) => {
     };
 };
 
-export function getRestaurantLocations(restaurantId) {
+
+export function logout() {
     return (dispatcher) => {
-        axios.get(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location`).then((res) => {
-            dispatcher(handleGetRestaurantLocations(res.data));
+        axios.delete(`${baseUrl}/users/v0/logout`).then(() => {
+            dispatcher(handleLogout());
         }).catch(console.err);
     };
-}
+};
 
-export const handleGetRestaurantLocations = (locations) => {
+export const handleLogout = () => {
     return {
-        type: HANDLE_GET_RESTAURANT_LOCATIONS,
-        payload: locations
+        type: HANDLE_LOGOUT,
+        payload: ""
     };
 };
 
 export function addRestaurant(restaurantState) {
     return (dispatcher) => {
-        axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant`, restaurantState).then((res) => {
+        axios.post(`${baseUrl}/restaurant`, restaurantState).then((res) => {
             dispatcher(handleAddRestaurant(res.data));
         }).catch(console.err);
     };
@@ -92,10 +91,9 @@ export const handleAddRestaurant = (restaurant) => {
     };
 };
 
-export function addLocation(restaurantId, restaurantLocation) {
+export function addLocation(locationData) {
     return async (dispatcher) => {
-        await axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location`, restaurantLocation).then((res) => {
-            console.log("res.data:", res.data);
+        await axios.post(`${baseUrl}/restaurant/${locationData.restaurantId}/location`, locationData).then((res) => {          
             dispatcher(handleAddLocation(res.data));
         }).catch(console.err);
     };
@@ -108,9 +106,25 @@ export const handleAddLocation = (location) => {
     };
 };
 
+export function getRestaurantLocations(restaurantId) {
+    return (dispatcher) => {
+        axios.get(`${baseUrl}/restaurant/${restaurantId}/locations`).then((res) => {
+            console.log('res.data:', res.data);
+            dispatcher(handleGetRestaurantLocations(res.data));
+        }).catch(console.err);
+    };
+}
+
+export const handleGetRestaurantLocations = (locations) => {
+    return {
+        type: HANDLE_GET_RESTAURANT_LOCATIONS,
+        payload: locations
+    };
+};
+
 export function getRestaurantLocationItems(restaurantId, locationId) {
     return async (dispatcher) => {
-        await axios.get(`https://digitalmenu-intensive.herokuapp.com/restaurant/${restaurantId}/location/${locationId}`).then((res) => {
+        await axios.get(`${baseUrl}/restaurant/${restaurantId}/location/${locationId}/item`).then((res) => {
             dispatcher(handleGetRestaurantLocationItems(res.data));
         }).catch(console.err);
     };
@@ -120,5 +134,20 @@ export const handleGetRestaurantLocationItems = (items) => {
     return {
         type: HANDLE_GET_ITEMS,
         payload: items
+    };
+};
+
+export function getRestaurantLocation(restaurantId, locationId) {
+    return async (dispatcher) => {
+        await axios.get(`${baseUrl}/restaurant/${restaurantId}/location/${locationId}`).then((res) => {
+            dispatcher(handleGetRestaurantLocation(res.data));
+        }).catch(console.err);
+    };
+};
+
+export const handleGetRestaurantLocation = (location) => {
+    return {
+        type: HANDLE_GET_LOCATION,
+        payload: location
     };
 };
