@@ -27,17 +27,27 @@ button, %button {
     @extend %button;    
 }
 
-.btn_save {
+.btn_save, %btn_save {
     @extend %bg_color_animate_smooth; 
     @extend %button;
     background-color: $save;
     width: 90%;
+    height: 3em;
     display: block;
     margin: 0 auto;
 }
 
+.btn_save_success {
+    @extend %btn_save;
+    background-color:#3BBC5E;
+}
+
 .btn_save:hover {
-    background-color: rgb(80, 155, 0);
+    background-color:#3BBC5E;
+}
+
+.lottieGreenCheck {
+    width: 2em;
 }
 
 .line {

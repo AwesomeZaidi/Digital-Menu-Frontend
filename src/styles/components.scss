@@ -2,10 +2,10 @@
 @import 'base_styles.scss';
 
 .bg_color_animate_smooth, %bg_color_animate_smooth {
-    -webkit-transition: background-color 2s ease-out;
-    -moz-transition: background-color 2s ease-out;
-    -o-transition: background-color 2s ease-out;
-    transition: background-color 2s ease-out;
+    -webkit-transition: background-color .6s ease-out;
+    -moz-transition: background-color .6s ease-out;
+    -o-transition: background-color .6s ease-out;
+    transition: background-color .6s ease-out;
 }
 
 // BASE STYLES
@@ -33,9 +33,14 @@ div {
     vertical-align: baseline;
 }
 
-p {
+p, %p {
     padding: 0;
     margin: 0;
+}
+
+.p_error {
+    @extend %p;
+    color: $error;
 }
 
 .logo {
@@ -43,6 +48,12 @@ p {
 }
 
 // USEFUL CLASSES
+
+.container, %container {
+    background-color: $secondary;
+    border-radius: 27px;
+    border-color: transparent;
+}
 
 .top-bot-border {
     border-bottom: 1px solid;
