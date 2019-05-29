@@ -1,0 +1,1 @@
+export { default } from './ManageLocation.js';
