@@ -7,7 +7,6 @@ import Lottie from 'lottie-react-web'
 import loadAnimation from '../../assets/lotties/load.json';
 import greenCheck from '../../assets/lotties/greenCheck.json';
 
-
 class AddLocation extends Component {
     constructor(props) {
         super(props);
@@ -50,11 +49,11 @@ class AddLocation extends Component {
             this.setState({
                 loading: 'done'
             });
-            const location = `/restaurant/${this.props.restaurant._id}/location/${this.props.location._id}`;
+            const locationsUrl = `/restaurant/${this.props.restaurant._id}/locations`;
             setTimeout(() => {
                 this.setState({
                     redirect: true,
-                    redirectUrl: location   
+                    redirectUrl: locationsUrl   
                 });
             }, 2000);
         }).catch(() => {
