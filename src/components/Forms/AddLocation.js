@@ -6,7 +6,6 @@ import '../../styles/locations.scss';
 import Lottie from 'lottie-react-web'
 import loadAnimation from '../../assets/lotties/load.json';
 import greenCheck from '../../assets/lotties/greenCheck.json';
-import { green } from 'ansi-colors';
 
 
 class AddLocation extends Component {
@@ -21,7 +20,10 @@ class AddLocation extends Component {
             zipcode: '',
             locationPhoneNumber: '',
             restaurantId: this.props.restaurant._id,
-            loading: false
+            loading: false,
+            locationId: '',
+            redirect: false,
+            redirectUrl: ''
         };
     };
 
@@ -43,9 +45,19 @@ class AddLocation extends Component {
     handleSubmit = async (e) => {
         this.setState({ loading: true });
         e.preventDefault();
+        // why doesn't this return a response value?
         this.props.addLocation(this.state).then(() => {
-            this.setState({ loading: 'done' })
-        }).catch((err) => {
+            this.setState({
+                loading: 'done'
+            });
+            const location = `/restaurant/${this.props.restaurant._id}/location/${this.props.location._id}`;
+            setTimeout(() => {
+                this.setState({
+                    redirect: true,
+                    redirectUrl: location   
+                });
+            }, 2000);
+        }).catch(() => {
             this.setState({ loading: 'error' });
         });
 
@@ -53,10 +65,11 @@ class AddLocation extends Component {
     };
 
     render() {
-        console.log('this.props.restaurant', this.props.restaurant);
-        
         if (!this.props.user) {
             return <Redirect to='/'/>
+        }
+        if (this.state.redirect === true) {
+            return <Redirect to={this.state.redirectUrl}/>
         }
         return (
             <div className='table-page add-form'>
@@ -110,13 +123,14 @@ class AddLocation extends Component {
                                         }}/>
                                 </button>
                             : this.state.loading === 'done' ?
-                                <button onClick={this.handleSubmit} className='btn_save_success'>
-                                    <Lottie options={{
-                                        animationData: greenCheck,
-                                        loop: 0,
-                                        container: 'element'
-                                    }}/>
-                                </button>
+                                <div>
+                                    <button onClick={this.handleSubmit} className='btn_save_success'>
+                                        <Lottie options={{
+                                            animationData: greenCheck,
+                                            loop: 0,
+                                        }}/>
+                                    </button>
+                                </div>
                             : this.state.loading === 'error' ?
                                 // change this error message later. 
                                 <button onClick={this.handleSubmit} disabled={!this.validateForm()} className='btn_save'>
