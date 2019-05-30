@@ -1,5 +1,10 @@
 @import './variables.scss';
 
+@font-face {
+    font-family: thin;
+    src: url(../assets/fonts/HelveticaNeue-Thin.otf);
+}
+
 a {
     cursor: pointer;
     text-decoration: none;

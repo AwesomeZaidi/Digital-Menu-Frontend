@@ -20,7 +20,12 @@ class TableContainer extends Component {
                                     <tr key={'mykey' + index}>
                                         <td>{location.locationName}</td>
                                         <td>{location.streetAddress}</td>
-                                        <td><a className='cursor'>https://digitalmenu.com/restaurants/{this.props.restaurant._id + '/locations/' + location._id}/items</a><EditBtn restaurantId={this.props.restaurant._id} locationId={location._id}/></td>
+                                        <td><a className='uniqueLink cursor'>
+                                            {`https://digitalmenu.com/restaurants\/${this.props.restaurant._id}/location/${location._id}/items`.substring(0,24)}
+                                        </a>
+                                        <button className='copyBtn'>copy</button>
+                                        <EditBtn restaurantId={this.props.restaurant._id} locationId={location._id}/>
+                                        </td>
                                     </tr>
                                 )
                             }
