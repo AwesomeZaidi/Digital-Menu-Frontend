@@ -11,7 +11,7 @@ import Restaurants from "./pages/Restaurants";
 import Locations from "./pages/Locations";
 import NavBar from "./components/NavBar";
 import SideMenu from "./components/SideMenu";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import AddLocation from "./components/Forms/AddLocation";
 import './styles/variables.scss'
 import './styles/components.scss';
