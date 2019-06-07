@@ -1,15 +1,16 @@
 import React, { Component} from 'react';
 import { connect } from "react-redux";
-import { getRestaurantLocations, addLocation } from '../../redux/actions/index';
+import { getRestaurant, getLocations, addLocation } from '../../redux/actions/index';
 import { Redirect } from 'react-router';
 import AddBtn from '../../components/Buttons/Add';
-import TableContainer from '../../components/Views/TableContainer';
+import LocationsTable from '../../components/Views/LocationsTable';
 import '../../styles/locations.scss';
 
 class Locations extends Component {
 
     componentDidMount = () => {
-        this.props.getRestaurantLocations(this.props.restaurant._id);
+        this.props.getRestaurant(this.props.match.params.restaurantId);
+        this.props.getLocations(this.props.match.params.restaurantId);
     }
 
     render() {
@@ -19,10 +20,10 @@ class Locations extends Component {
         return (
             <section className='table-page'>
                 <div className='table-top-row'>
-                    <p className='table-header'>Manage Locations</p>
-                    <AddBtn url='addLocation' title='Location'/>
+                    <p className='table-header'>Manage {this.props.restaurant.restaurantName} Locations</p>
+                    <AddBtn url='/addLocation' title='Location'/>
                 </div>
-                <TableContainer locations={this.props.locations}/>             
+                <LocationsTable locations={this.props.locations}/>             
             </section>
         );
     }
@@ -37,7 +38,8 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps() {
     return {
-        getRestaurantLocations,
+        getRestaurant,
+        getLocations,
         addLocation
     };
 };
