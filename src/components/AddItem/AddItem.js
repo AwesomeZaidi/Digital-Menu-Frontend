@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-// import { addItem } from '../../redux/actions/index';
+import { addItem } from '../../redux/actions/index';
 import '../../styles/items.scss';
 
 class AddItem extends Component {
@@ -8,11 +8,11 @@ class AddItem extends Component {
         super(props);
 
         this.state = {
-            name: '',
+            itemName: '',
             price: '',
             description: '',
         };
-        this.handleSubmitItem = this.handleSubmitItem.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this)
     };
 
     handleChange = (event) => {   
@@ -25,38 +25,36 @@ class AddItem extends Component {
     };
 
     validateForm() {
-        return this.state.name.length > 0 && this.state.price.length > 0;
+        return this.state.itemName.length > 0 && this.state.price.length > 0;
     };
 
-    handleSubmitItem = (e) => {
-        e.preventDefault();
-        // axios.post(`https://digitalmenu-intensive.herokuapp.com/restaurant/${this.props.restaurantId}/location/${this.props.locationId}/item`, this.state).then((res.data) => {
-        // }).catch(cons)
-        this.props.addNewItem(this.state);
+    handleSubmit = () => {
+        this.props.addItem(this.state, this.props.restaurantId, this.props.locationId);
+        this.props.addItemRow(this.state);
     };
 
     render() {
         return (
-            <form className='add-item_container'>
-                <input name='name' placeholder='Name' value={this.state.name} onChange={this.handleChange} />
+            <div className='add-item_container'>
+                <input name='itemName' placeholder='Name' value={this.state.itemName} onChange={this.handleChange} />
                 <input name='price' placeholder='Price' value={this.state.price} onChange={this.handleChange}/>
                 <input name='description' placeholder='Description' value={this.state.description} onChange={this.handleChange}/>
-                <button onClick={this.handleSubmitItem} className='btn_primary' type='submit'>Add Item</button>
-            </form>
+                <button onClick={this.handleSubmit} disabled={!this.validateForm()} className='btn_primary' type='submit'>Add Item</button>
+            </div>
         );
     };
 };
 
 const mapStateToProps = state => {
-    return { restaurant: state.restaurant };
+    return {
+        restaurant: state.restaurant
+    };
 };
 
-// function mapDispatchToProps() {
-//     return {
-//         addItem
-//     };
-// };
+function mapDispatchToProps() {
+    return {
+        addItem
+    };
+};
 
-export default connect(mapStateToProps, null)(AddItem);
-
-
+export default connect(mapStateToProps, mapDispatchToProps())(AddItem);
