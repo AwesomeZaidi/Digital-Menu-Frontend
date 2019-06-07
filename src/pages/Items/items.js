@@ -1,17 +1,19 @@
 import React, { Component} from 'react';
 import { connect } from "react-redux";
 // import { getRestaurantLocationItems, editItem, deleteItem } from '../../redux/actions/index';
-import { getRestaurantLocation, getRestaurantLocationItems, addItem } from '../../redux/actions/index';
+import { Link } from 'react-router-dom';
+import { getLocation, getItems } from '../../redux/actions/index';
+// import { getRestaurantLocationItems, addItem } from '../../redux/actions/index';
 import { Redirect } from 'react-router';
-import EditBtn from '../../components/Buttons/Edit';
-import ItemsContainer from '../../components/Views/ItemsTable';
+// import EditBtn from '../../components/Buttons/Edit';
+import ItemsTable from '../../components/Views/ItemsTable';
 import '../../styles/locations.scss';
 
 class Items extends Component {
 
     componentWillMount = () => {
-        this.props.getRestaurantLocation(this.props.restaurant._id, this.props.match.params.locationId);
-        this.props.getRestaurantLocationItems(this.props.restaurant._id, this.props.match.params.locationId);
+        this.props.getLocation(this.props.match.params.restaurantId, this.props.match.params.locationId);
+        this.props.getItems(this.props.match.params.restaurantId, this.props.match.params.locationId);
     };
 
     render() {
@@ -21,10 +23,12 @@ class Items extends Component {
         return (
             <section className='table-page'>
             <div className='table-top-row'>
-                <p className='table-header'>Update {this.props.location.title} Items</p>
-                <EditBtn title='Location Info'/> 
+                <p className='table-header'>Update {this.props.location.locationName} Items</p>
+                <Link to={`/restaurant/${this.props.match.params.restaurantId}/location/${this.props.match.params.locationId}/`}>
+                    <button className='btn_edit'>Edit Location Info</button>
+                </Link>
             </div>
-            <ItemsContainer locations={this.props.locations}/>             
+            <ItemsTable restaurantId={this.props.match.params.restaurantId} locationId={this.props.match.params.locationId}/>             
         </section>
         );
     };
@@ -33,14 +37,15 @@ class Items extends Component {
 
 const mapStateToProps = state => {
     return { user: state.user,
-            restaurant: state.restaurant
+            restaurant: state.restaurant,
+            location: state.location
     };
 };
 
 function mapDispatchToProps() {
     return {
-        getRestaurantLocation,
-        getRestaurantLocationItems
+        getLocation,
+        getItems
         // addItem,
         // editItem,
         // removeItem
