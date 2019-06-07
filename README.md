@@ -58,6 +58,7 @@ This is currently version 0 and we will be making more iterations in the near fu
 ## Authors
 
 * **Asim Zaidi** - *Initial work* - [GitHub](https://github.com/awesomezaidi), [Email](asimzaidih@gmail.com), [LinkedIn](https://linkedin.com/in/zaidiasim), [Twitter](https://twitter.com/theasimzaidi)
+* **Jayce Azua** - *Initial work* - [GitHub](https://github.com/jayceazua), [Email](connect@jayceazua.com), [LinkedIn](https://linkedin.com/in/jayceazua)
 
 ## License
 
