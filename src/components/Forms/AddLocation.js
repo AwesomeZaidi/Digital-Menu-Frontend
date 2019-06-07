@@ -133,7 +133,7 @@ class AddLocation extends Component {
                             : this.state.loading === 'error' ?
                                 // change this error message later. 
                                 <button onClick={this.handleSubmit} disabled={!this.validateForm()} className='btn_save'>
-                                    There was a problem saving this, Try Again. 😕
+                                    There was a problem saving this, Try Again. <span role="img" aria-label='sad-face'>😟</span>
                                 </button>
                             :
                                 null
