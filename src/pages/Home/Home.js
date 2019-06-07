@@ -3,17 +3,22 @@ import HowItWorks from '../../components/HowItWorks';
 import { Redirect } from 'react-router';
 import { connect } from "react-redux";
 import { login, clearError } from '../../redux/actions/index';
-
+import excel from '../../assets/excel2.jpg';
+import demo from '../../assets/demo.png';
+import Footer from '../../components/Footer';
 import "../../styles/home.scss";
 import '../../styles/components/login_modal.scss';
 // import '../../utils/popupLogin.js';
+import Typed from 'react-typed';
+import Fade from 'react-reveal/Fade';
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            showDemo: false
         };
     };
 
@@ -21,16 +26,11 @@ class Home extends Component {
 
         this.props.clearError(false);
 
-        // Get the modal
-        const modal = document.getElementById('myModal');
+        const modal = document.getElementById('myModal'); // Get the modal
+        const loginBtn = document.getElementById("loginBtn"); // Get the button that opens the modal
+        const span = document.getElementsByClassName("close")[0]; // Get the <span> element that closes the modal
 
-        // Get the button that opens the modal
-        const loginBtn = document.getElementById("loginBtn");
-
-        // Get the <span> element that closes the modal
-        const span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks the button, open the modal 
+        // When user clicks button, open modal 
         loginBtn.onclick = function() {
             modal.style.display = "block";
         };
@@ -46,6 +46,18 @@ class Home extends Component {
                 modal.style.display = "none";
             };
         };
+
+        // Fade in animations
+        setTimeout(() => {
+            this.setState({                
+                showDemo: true
+            })
+        }, 2100);
+    };
+
+    validateForm() {
+        return this.state.email.length > 0 &&
+        this.state.password.length > 0
     };
 
     handleRedirect(page) {
@@ -67,10 +79,10 @@ class Home extends Component {
 
     render() {
         if (this.props.user) {
-            console.log('found user on home render');
-            return <Redirect to='/locations'/>
+            return <Redirect to='/dashboard'/>
         };
         return (
+            <>
             <section className='home'>    
                 <div>
                     {/* <!-- The Modal --> */}
@@ -90,7 +102,7 @@ class Home extends Component {
                                     <label htmlFor="password">Your Password</label>
                                     <input id="password" type="password" name="password" placeholder="**********" value={this.state.password} onChange={this.handleChange} />
                                 </div>
-                                <button type='submit'>Login</button>
+                                <button disabled={!this.validateForm()} type='submit'>Login</button>
                                 <p>Don't have an account?</p>
                             </form>
                         </div>
@@ -98,13 +110,43 @@ class Home extends Component {
                 </div>              
                 {/* TOP */}
                 <div className='top'>
-                    <div className='left-content section-side-padding'>
-                        <h1 className='block__title'>Manage menus</h1>
-
-                        <p className='block__paragraph'>Update the prices for all your online menues using our intuitive menu manager.</p>
-
-                        <a href='/signup' className='block__btn'>Sign up</a>
-                    </div>
+                        {/* <h1 className='block__title'>Goodbye<br></br>Excel Sheets</h1> */}
+                        <div>
+                            {this.state.showDemo === true ?
+                            <>
+                                <Typed 
+                                    className='block__title'
+                                    strings={['Hello, Digital Menu']} 
+                                    typeSpeed={40} 
+                                />
+                                <Fade left>
+                                    <img className='blur-img'src={demo}></img>
+                                </Fade>
+                            </>
+                            :
+                            <>
+                                <Typed 
+                                    className='block__title'
+                                    strings={['Goodbye, Excel Sheets', 'Hello Digital Menu']} 
+                                    typeSpeed={40} 
+                                />
+                                {/* <Fade right> */}
+                                    <img className='blur-img'src={excel}></img>
+                                {/* </Fade> */}
+                            </>
+                        }
+                        </div>  
+                        <div className='slogan-section'>
+                            {this.state.showDemo ? 
+                                <p className='slogan'>
+                                    Manage all your restaurants locations menus in one place.
+                                </p>                            
+                            : null}
+                        </div>
+                        <center>
+                            <a href='/signup' className='block__btn landing-btn'>Sign up</a>
+                            <a href='#advantage-block' className='block__btn landing-btn'>Learn More</a>
+                        </center>
                     
                     <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
                         <img src='./assets/images/doordash.png' alt='pic'></img>
@@ -117,8 +159,9 @@ class Home extends Component {
                     </div>
                 </div>
 
+
                 {/* ADVANTAGE */}
-                <div className='advantage-block flexbox justify-content-space-evenly section-padding'>
+                <div id='advantage-block' className='advantage-block flexbox justify-content-space-evenly section-padding'>
                     <div className='item'>
                         <p className='advantage-block__title'>Over 100 restaurants</p>
                         <p className='block__paragraph'>Take care of your menus easier than ever.</p>
@@ -136,7 +179,9 @@ class Home extends Component {
                 {/* HOW IT WORKS */}
                 <HowItWorks />
 
-            </section>
+                </section>
+            <Footer/>
+            </>
         );
     }
 }
