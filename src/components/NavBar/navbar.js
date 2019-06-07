@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../../styles/components/navbar.scss';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { logout } from '../../redux/actions/index';
 
 class NavBar extends Component {
@@ -8,7 +9,7 @@ class NavBar extends Component {
         return (
             <header>
                 <nav>
-                    <h1>Digital Menu</h1>
+                    <h1 className='logo'>Digital Menu</h1>
                     { this.props.user ?
                     <div>
                         <p className='cursor' onClick={this.props.logout}>Logout</p>
@@ -16,8 +17,8 @@ class NavBar extends Component {
                     :       
                     <div>
                         {/* <!-- Trigger/Open The Modal --> */}
-                        <button className='cursor' id='loginBtn'>Login</button>
-                        <a href='/signup'>Signup</a>
+                        <a className='cursor' id='loginBtn'>Login</a>
+                        <Link className='signup' to='/signup'>Signup</Link>
                     </div>
                     }
                 </nav>
