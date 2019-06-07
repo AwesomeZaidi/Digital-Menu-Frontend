@@ -1,116 +1,72 @@
-import React, { Component} from 'react';
-import { connect } from "react-redux";
-import { addLocation } from '../../redux/actions/index';
-import '../../styles/menu.scss';
+import React, { Component } from 'react';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import '../../styles/dashboard.scss';
+import Lottie from 'lottie-react-web'
+import setting from '../../assets/lotties/setting.json';
+import help from '../../assets/lotties/help.json';
+
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            restaurantLocation: '',
-            food: [{
-                item: "",
-                price: ""
-            },
-            {
-                item: "",
-                price: ""
-            }],
-        };
-        this.addLocation = this.addLocation.bind(this);
-    }
-
-    handleChange = (event) => {   
-        this.setState({ [event.target.id]: event.target.value });     
-    };
-
-    validateForm() {
-        return this.state.restaurantLocation.length > 0;
-    };
-
-    async addLocation() {
-        await this.props.addLocation(this.props.restaurant._id, this.state);
-        this.forceUpdate();
-    };
-
-    addrow() {
-        const tbody = document.getElementById('tbody');
-        const row = `
-            <tr>
-            <td contentEditable></td>
-            <td contentEditable></td>
-            </tr>`;
-
-        tbody.innerHTML += row;
-        
-    }
-
     render() {
         if (!this.props.user) {
             return <Redirect to='/'/>
-        }
+        };
         return (
-            <section className='dashboard center'>
-                <h2>{this.props.restaurant.restaurantName}</h2>
-                <p className='content-medium menu-sentence'>Update your restaurant menu across different menus and locations all in one place.</p>
-                
-                <div className='menu-wrapper'>
-                    <div className='location-section push-down'>
-                        <div className='form-group'>
-                            <input className='loc-input' type='text' name='restaurantLocation' id='restaurantLocation' placeholder='Location' onChange={this.handleChange}></input>
+            <div className='dashboard'>
+                <h1 className='h1_primary'>Dashboard</h1>
+                <div className='top-card'>
+                    <div className='stats'>
+                        <div className='left'>
+                            <h2 className='stat-number'>{this.props.restaurants.length}</h2>
+                            <h4>Restaurants</h4>
                         </div>
-                        <button onClick={this.addLocation} className='loc-btn'>Add Location</button>
-                        {this.props.locations ? 
-                            this.props.locations.map(
-                                (location, index) => {
-                                    return (<p key={'mykey' + index}>{location.restaurantLocation}</p>)
-                                }
-                            )
-                        : null
-                        }
+                        <div className='right'>
+                            <h2 className='stat-number'>{this.props.locations.length}</h2>
+                            <h4>Locations</h4>
+                        </div>
+                    </div>
+                    <Link to='/restaurants' className='db-start-btn'>Go to Restaurants</Link>
+                </div>
+
+                <div className='bottom-row'>
+                    <div className='bottom-card'>
+                        <Lottie options={{
+                            animationData: setting,
+                            loop: true,
+                            autoplay: true,
+                        }}/>
+                        <h2>Settings</h2>
                     </div>
 
-                    <div className='digital-menu push-down'>
-                        <table>
-                        <tbody id='tbody'>
-                            <tr>
-                                <th>Item</th>
-                                <th>Price</th>
-                            </tr>
-                            {this.state.food.map((value, index) => (
-                                <tr>
-                                    <td contentEditable>{value.item}</td>
-                                    <td contentEditable>{value.price}</td>
-                                </tr>
-                            ))}
-                            {/* <tr>
-                                <td contentEditable></td>
-                                <td contentEditable></td>
-                            </tr> */}
-                            {/* <tr>
-                                <td contentEditable></td>
-                                <td contentEditable></td>
-                            </tr> */}
-                          </tbody>
-                        </table>
-                        <button onClick={() => this.setState({food: [...this.state.food, {item: "", price:""}]})}className='menu-btn'>Add Item</button>
+                    <div className='bottom-card'>
+                        <Lottie options={{
+                            animationData: help,
+                            loop: true,
+                            autoplay: true,
+                        }}/>
+                        <h2>Need Help?</h2>
                     </div>
                 </div>
-            </section>
+            </div>
         );
     }
 }
-
 const mapStateToProps = state => {
-    return { user: state.user, restaurant: state.restaurant, locations: state.locations, item: state.items };
-};
-
-function mapDispatchToProps() {
     return {
-        addLocation
+        user: state.user,
+        restaurants: state.restaurants,
+        locations: state.locations,
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps())(Dashboard);
+export default connect(mapStateToProps, null)(Dashboard);
+
+// Contents of this page?
+// Title: Welcome to your Dashboard
+// Quick stats on how many shops and how many locations, you can go to your restaurants page,
+// and from there you can click into individuakl restaurant menus.
+// Go to your restaurants.
+// Making the UI decision that no restaurant will have a shit ton of restaurants only a few...ForkTsCheckerWebpackPlugin
+

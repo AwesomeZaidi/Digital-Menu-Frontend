@@ -1,0 +1,79 @@
+@import './variables.scss';
+
+@font-face {
+    font-family: bold;
+    src: url(../assets/fonts/manrope/bold.otf);
+}
+
+@font-face {
+    font-family: thin;
+    src: url(../assets/fonts/HelveticaNeue-Thin.otf);
+}
+
+// TEMP
+.logo {
+    // font-family: bold;
+    font-weight: 700;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+button, %button {
+    // margin: 1.4em 0em;
+    padding: .6em 2.2em;
+    background-color: $logo;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    // color: $secondary;
+    font-size: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn_primary {
+    @extend %button;    
+}
+
+.btn_save, %btn_save {
+    @extend %bg_color_animate_smooth; 
+    @extend %button;
+    background-color: $save;
+    width: 90%;
+    height: 3em;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn_save_success {
+    @extend %btn_save;
+    background-color:#3BBC5E;
+}
+
+.btn_save_success:nth-child(2) {
+    height: 120%;
+}
+
+.btn_save:hover {
+    background-color:#3BBC5E;
+}
+
+.lottieGreenCheck {
+    width: 2em;
+}
+
+.line {
+    display: block;
+    overflow: hidden;
+    margin: 8em -2em 2em -2em;
+    border-style: inset;
+    border-width: .9px;
+}

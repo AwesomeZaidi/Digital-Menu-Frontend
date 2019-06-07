@@ -1,14 +1,26 @@
-@import 'variables.scss';
+// @import 'variables.scss';
+@import 'base_styles.scss';
+
+.bg_color_animate_smooth, %bg_color_animate_smooth {
+    -webkit-transition: background-color .6s ease-out;
+    -moz-transition: background-color .6s ease-out;
+    -o-transition: background-color .6s ease-out;
+    transition: background-color .6s ease-out;
+}
 
 // BASE STYLES
 html, body {
+    // 3 below lines are necessary for footer to stay at bottom, among other things.
+    padding: 0;
+    margin: 0;
+    height: 100%;
     margin: 0;
     padding: 0;
     min-width: 100%;
     min-height: 100%;
-    background-color: $primary;
+    background-color: $background;
     font-size: 16px;
-    color: $secondary;
+    color: $text;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -25,21 +37,23 @@ div {
     vertical-align: baseline;
 }
 
-a {
-    text-decoration: none;
-    color: $secondary;
-}
-
-p {
+p, %p {
     padding: 0;
     margin: 0;
 }
 
-.logo {
-    max-width: 3em;
+.p_error {
+    @extend %p;
+    color: $error;
 }
 
 // USEFUL CLASSES
+
+.container, %container {
+    background-color: $secondary;
+    border-radius: 27px;
+    border-color: transparent;
+}
 
 .top-bot-border {
     border-bottom: 1px solid;
@@ -55,6 +69,11 @@ p {
     display: flex;
 }
 
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
 .justify-content-space-evenly {
     justify-content: space-evenly;
 }
@@ -63,10 +82,24 @@ p {
     justify-content: center;
 }
 
-.block__paragraph {
+.block__paragraph, %block__paragraph {
     margin: 0 0 41px;
     max-width: 415px;
     font-size: 20px;
+    line-height: 1.4;
+    text-shadow: none;
+    font-weight: 200;
+    letter-spacing: .4px;
+}
+.slogan-section {
+    height: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.slogan {
+    font-size: 1.65em;
+    text-align: center;
+    display: block;
     line-height: 1.4;
     text-shadow: none;
     font-weight: 200;
@@ -80,11 +113,13 @@ p {
     font-weight: 700;
     text-shadow: none;
     letter-spacing: -0.3px;
+    text-align: center;
+    display: block;
 }
 
 .advantage-block__title {
     margin-bottom: 16px;
-    color: $text;
+    color: $block__title;
     font-size: 20px;
     font-weight: bold;
     letter-spacing: -0.5px;
@@ -96,7 +131,7 @@ p {
     width: 100%;
     max-width: 185px;
     min-width: initial;
-    color: $primary;
+    color: $logo;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: -0.65px;
@@ -114,8 +149,30 @@ p {
 }
 
 .block__btn:hover {
-    background-color: #ffffffaf;
+    background-color: $logo;
+    color: white;
 }
+
+.btn_edit {
+    @extend %bg_color_animate_smooth;
+    background-color: $edit;
+    color: $secondary;
+    padding: .4em 2.7em;
+    margin-left: 2em;
+    cursor: pointer;
+    border-radius: .8em;
+    font-size: 1em;
+    a {
+        color: white !important;
+    }
+}
+
+
+
+.btn_edit:hover {
+    background-color: rgb(0, 126, 122);
+}
+
 .section-sides-padding {
     padding: 0em 8em;
 }
@@ -171,16 +228,47 @@ p {
 }
 
 .footer {
-    background-color: $background;
+    background-color: $text;
     color: $secondary;
-    padding: 5em 6em;
+    padding: 4em 6em 2em 6em;
     .logo {
-        color: $primary;
+        text-align: center;
+        color: $background;
+        margin-bottom: 1.8em;
+        font-size: 2em;
+        font-weight: 700;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+        cursor: pointer;
     }
+    .footerOptions {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 1.4em;
+        .footer-option {
+            text-align: center;
+            width: 11em;
+            // background-color: $background;
+            color: $background;
+            padding: .6em 0em;
+            border: 5px solid rgba(233, 233, 233, 0.289);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .footer-option:hover {
+            background-color: $background;
+            color: $text;
+            border: 5px solid $background;
+        }
+    }
+    .rights {
+        margin-top: 4em;
+        text-align: center;
+    }
+}
 
-    // .links {
-    //     color: $d
-    // }
+.error-msg {
+    color: $error;
 }
 
 h1 {
@@ -200,11 +288,16 @@ h1 {
 }
 
 .hero-section {
-    background-color: $primary;
+    // background-color: $primary_action;
     height: 10vh;
     width: 100%;
     position: relative;
     z-index: 1;
+    .signup-title {
+        margin-top: .8em;
+        font-weight: 700;
+        color: $logo;
+    }
 }
 
 .form-wrapper {
@@ -232,6 +325,9 @@ h1 {
     flex-direction: column;
     padding: 1em 0em;
     margin: 0;
+    .label-subtext {
+        font-style: italic;
+    }
     label {
         font-weight: 500;
         margin-bottom: 8px;
@@ -257,7 +353,7 @@ h2.content-section {
     text-align: center;
     margin-top: 0;
     margin-bottom: 24px;
-    color: $background;
+    // color: $logo;
 }
 
 p.content-section {
@@ -329,14 +425,4 @@ li.content-section {
     left: 0;
     right: 0;
     top: auto;
-}
-
-button {
-    margin: 1.4em 0em;
-    padding: 1.1em 4.8em;
-    background-color: $primary;
-    border: none;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 1.2em;
 }

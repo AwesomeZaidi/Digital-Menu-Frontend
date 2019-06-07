@@ -1,10 +1,20 @@
-$primary: #ff6a44;
-$secondary: rgb(252, 252, 252);
+$primary: orange;
+$primary_action: rgb(142, 142, 142);
+$secondary: #ffffff;
+$error: #d9442d;
 $text: #000000;
-$background: #22272e;
+$logo: #004376;
+$block__title: #2e2e2e;
+$background: #EBEFF3;
+$inputbg: #F3F3F3;
+$cardbg: #ffffff;
+$edit: #00BEB7;
+$save: rgb(22, 140, 54);
+$line_color: #7474749a;
+
 // FONTS
 
-@font-face {
-    font-family: regular;
-    src: url(../assets/fonts/HelveticaNeue.ttc);
-}
+// @font-face {
+//     font-family: regular;
+//     src: url(../assets/fonts/HelveticaNeue.ttc);
+// }

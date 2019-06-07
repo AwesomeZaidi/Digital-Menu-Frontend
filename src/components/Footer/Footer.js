@@ -1,13 +1,16 @@
 import React from "react";
 const Footer = () => (
   <footer className='footer'>
-        <p className='logo' className='advantage-block__title'>Digital Menu</p>
+        <p className='logo'>Digital Menu</p>
 
-        <p>Contact Us</p>
-        <p>Sign Up</p>
-        <p>Terms & Conditions</p>
+        <div className='footerOptions'>
+          <p className='footer-option'>Contact Us</p>
+          <p className='footer-option'>Sign Up</p>
+          <p className='footer-option'>Terms & Conditions</p>
+          {/* <p className='footer-option'>LinkedIn</p> */}
+        </div>
 
-        <p>Digital Menu. 2019.</p>
+        <p className='rights'>Digital Menu. 2019.</p>
 
 
   </footer>

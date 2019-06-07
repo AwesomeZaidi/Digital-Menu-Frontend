@@ -1,0 +1,29 @@
+@import '../variables.scss';
+// @import '../base_styles.scss';
+
+header {
+    nav {
+        display: flex;
+        background-color: $secondary;
+        color: $text;
+        justify-content: space-between;
+        align-items: center;
+        padding: .1em 2em;
+        border-bottom: .5px solid rgba(52, 52, 52, 0.24);
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: $text;
+        }
+        .logo {
+            color: $logo;
+            // font-family: regular;
+        }
+        .signup {
+            margin-left: 1.2em;
+        }
+    }
+}
