@@ -65,5 +65,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* My front end mentors **Joe Rezendes** - [GitHub](https://github.com/joerez) and my front end instructor from Make School, Mitchell Hudson - [GitHub](https://github.com/soggybag) for all the help in scoping and debugging.
-* My teammate Jaycee Azua [GitHub](https://github.com/jayceazua) for developing the backend API that this product uses.
+* My teammate Jayce Azua [GitHub](https://github.com/jayceazua) for developing the backend API that this product uses.
