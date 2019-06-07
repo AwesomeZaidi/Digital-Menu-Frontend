@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import EditBtn from '../Buttons/Edit';
 import AddItem from '../AddItem';
 
 class ItemsTable extends Component {
@@ -13,34 +12,33 @@ class ItemsTable extends Component {
         };
     };
 
-    addNewItem = (item) => {
+    addItemRow = (item) => {      
         let items = this.state.items;
-        items.unshift(item)
+        items.push(item);
         this.setState({
           items: items
         });
     };
 
     render() {
-        console.log('this item:', this.props.items);
-        
         return (
             <div>
-                <AddItem addNewItem={this.addNewItem} />
+                <AddItem addItemRow={this.addItemRow} locationId={this.props.locationId} restaurantId={this.props.restaurantId}/>
                 <table className='container'>
                     <tbody>
                         <tr>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Menu URL</th>
+                            <th>Name*</th>
+                            <th>Price*</th>
+                            <th>Decription</th>
                         </tr>
                         { this.state.items !== 0 ?
-                            this.state.items.map((item, index) => {
+                            this.state.items.reverse().map((item, _) => {
                                 return (
                                     <tr key={item._id}>
-                                        <td>Name whenever backend creates it.</td>
-                                        <td>{item.restaurantLocation}</td>
-                                        <td>Unique URL Here <EditBtn /></td>
+                                        <td>{item.itemName}</td>
+                                        <td>{item.price}</td>
+                                        <td>{item.description}</td>
+                                        {/* <td>Unique URL Here <EditBtn /></td> */}
                                     </tr>
                                   
                                 )
