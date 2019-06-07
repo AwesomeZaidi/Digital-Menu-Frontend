@@ -1,0 +1,94 @@
+@import './variables.scss';
+@import './base_styles.scss';
+@import './components.scss';
+
+.dashboard {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    .h1_primary {
+        margin: 3px 0 23px;
+        max-width: 100%;
+        font-size: 46px;
+        font-weight: 700;
+        text-shadow: none;
+        letter-spacing: -0.3px;
+        color: $block__title;
+        text-align: center;
+    }
+    .top-card {
+        width: 36em;
+        height: 14em;
+        background-color: $cardbg;
+        border-radius: .5em;
+        text-align: center;
+        // display: block;
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            .left, .right {
+                text-align: center;
+                margin: 1em 2em;
+            }
+            .stat-number {
+                font-size: 2em;
+            }
+        }
+        .link {
+            color: black;
+        }
+    }
+    .bottom-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .bottom-card {
+            background-color: $cardbg;
+            margin: 3em 4em;
+            padding: 2em 1em 0em 1em;
+            border-radius: .4em;
+            min-width: 8em;
+            min-height: 6em;
+            text-align: center;
+            // THE LOTTIE
+            div {
+                height: 14em;
+                width: 14em;
+            }
+        }
+    }
+    .db-start-btn {
+        padding: 18px 15px;
+        margin: 0 0 100px;
+        width: 100%;
+        max-width: 185px;
+        min-width: initial;
+        color: $logo;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.65px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        border-radius: 6px;
+        background-color: $logo;
+        color: $secondary;
+        display: inline-block;
+        line-height: 16px;
+        text-align: center;
+        box-sizing: border-box;
+        transition: all 0.25s;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border: 3px solid $logo;
+    }
+    
+    .db-start-btn:hover {
+        background-color: $secondary;
+        color: $logo;
+        border: 3px solid $logo;
+    }
+}

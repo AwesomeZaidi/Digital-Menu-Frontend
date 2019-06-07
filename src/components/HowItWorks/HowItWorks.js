@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const HowItWorks = () => (
     <div className='how-it-works section-padding'>
@@ -16,7 +17,7 @@ const HowItWorks = () => (
                 <span className='how-works__step-numb'>3</span>
                 <span className='how-works__step-text'>Other menus will pull your up to date menu from us.</span>
             </li>
-            <a className='block__btn'>Sign up</a>
+            <Link to='/signup' className='block__btn'>Sign up</Link>
         </ul>
     </div>
 );

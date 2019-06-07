@@ -1,0 +1,26 @@
+
+@import './variables.scss';
+@import './base_styles.scss';
+@import './components.scss';
+
+.add_container {
+    background-color: $cardbg;
+    border-radius: .5em;
+    margin: 1em 0em;
+    width: 34em;
+    padding: 0px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    .rest-add {
+        margin: 0;
+        height: 2.4em;
+        margin: 0;
+    }
+    .rest-input {
+        height: 3.2em;
+        width: 20em;
+        padding: 0px 16px;
+    }
+}

@@ -1,0 +1,23 @@
+@import './variables.scss';
+@import './components.scss';
+
+.add-item_container {
+    @extend %container;
+    border-radius: 0;
+    padding: .3em 0.4em;
+    margin-bottom: 0.6em;
+    display: flex;
+    justify-content: space-between;
+    input {
+        background-color: $inputbg;
+        border: none;
+        // margin: auto 10em auto 0em;
+        // height:2.6em;
+        // width: 12em;
+        padding-left: 1em;
+        font-size: 1em;
+    }
+    input:nth-child(3) {
+        width: 20em;
+    }
+}
