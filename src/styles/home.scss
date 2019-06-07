@@ -1,19 +1,66 @@
 
 @import 'components.scss';
 
+
+.fadein, %fadein {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+     -ms-animation: fadein 2s; /* Internet Explorer */
+      -o-animation: fadein 2s; /* Opera < 12.1 */
+         animation: fadein 2s;
+}
 .home {
     color: $secondary;
     background-color: $primary;
 
     .top {
+        min-height: 40em;
         padding-top: 4em;
-        background-color: $primary;
-        background-image: url(../assets/topbg.webp);
+        background-color: $background;
         background-position-y: bottom;
         background-position-x: right;
         background-size: 100%;
         background-repeat: no-repeat;
         width: 100%;
+        color: $text;
+        .blur-img {
+            margin: 0 auto;
+            max-width: 42vw;
+            display: block;
+            -webkit-box-shadow: 12px 11px 18px 0px rgba(255,255,255,1);
+            -moz-box-shadow: 12px 11px 18px 0px rgba(255,255,255,1);
+            box-shadow: 12px 11px 18px 0px rgba(255,255,255,1);
+            @extend %fadein;
+        }
+        .slogan {
+            @extend %fadein;            
+        }
+        .landing-btn {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        
+        /* Firefox < 16 */
+        @-moz-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        
+        /* Safari, Chrome and Opera > 12.1 */
+        @-webkit-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        
+        /* Internet Explorer */
+        @-ms-keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
         .left-content {
             margin-left: 16em;
             a {

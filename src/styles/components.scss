@@ -1,4 +1,4 @@
-@import 'variables.scss';
+// @import 'variables.scss';
 @import 'base_styles.scss';
 
 .bg_color_animate_smooth, %bg_color_animate_smooth {
@@ -10,6 +10,10 @@
 
 // BASE STYLES
 html, body {
+    // 3 below lines are necessary for footer to stay at bottom, among other things.
+    padding: 0;
+    margin: 0;
+    height: 100%;
     margin: 0;
     padding: 0;
     min-width: 100%;
@@ -41,10 +45,6 @@ p, %p {
 .p_error {
     @extend %p;
     color: $error;
-}
-
-.logo {
-    max-width: 3em;
 }
 
 // USEFUL CLASSES
@@ -82,10 +82,24 @@ p, %p {
     justify-content: center;
 }
 
-.block__paragraph {
+.block__paragraph, %block__paragraph {
     margin: 0 0 41px;
     max-width: 415px;
     font-size: 20px;
+    line-height: 1.4;
+    text-shadow: none;
+    font-weight: 200;
+    letter-spacing: .4px;
+}
+.slogan-section {
+    height: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.slogan {
+    font-size: 1.65em;
+    text-align: center;
+    display: block;
     line-height: 1.4;
     text-shadow: none;
     font-weight: 200;
@@ -99,11 +113,13 @@ p, %p {
     font-weight: 700;
     text-shadow: none;
     letter-spacing: -0.3px;
+    text-align: center;
+    display: block;
 }
 
 .advantage-block__title {
     margin-bottom: 16px;
-    color: $text;
+    color: $block__title;
     font-size: 20px;
     font-weight: bold;
     letter-spacing: -0.5px;
@@ -115,7 +131,7 @@ p, %p {
     width: 100%;
     max-width: 185px;
     min-width: initial;
-    color: $primary_action;
+    color: $logo;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: -0.65px;
@@ -133,7 +149,8 @@ p, %p {
 }
 
 .block__btn:hover {
-    background-color: #ffffffaf;
+    background-color: $logo;
+    color: white;
 }
 
 .btn_edit {
@@ -211,16 +228,47 @@ p, %p {
 }
 
 .footer {
-    background-color: $background;
+    background-color: $text;
     color: $secondary;
-    padding: 5em 6em;
+    padding: 4em 6em 2em 6em;
     .logo {
-        color: $primary_action;
+        text-align: center;
+        color: $background;
+        margin-bottom: 1.8em;
+        font-size: 2em;
+        font-weight: 700;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+        cursor: pointer;
     }
+    .footerOptions {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 1.4em;
+        .footer-option {
+            text-align: center;
+            width: 11em;
+            // background-color: $background;
+            color: $background;
+            padding: .6em 0em;
+            border: 5px solid rgba(233, 233, 233, 0.289);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .footer-option:hover {
+            background-color: $background;
+            color: $text;
+            border: 5px solid $background;
+        }
+    }
+    .rights {
+        margin-top: 4em;
+        text-align: center;
+    }
+}
 
-    // .links {
-    //     color: $d
-    // }
+.error-msg {
+    color: $error;
 }
 
 h1 {
@@ -240,11 +288,16 @@ h1 {
 }
 
 .hero-section {
-    background-color: $primary_action;
+    // background-color: $primary_action;
     height: 10vh;
     width: 100%;
     position: relative;
     z-index: 1;
+    .signup-title {
+        margin-top: .8em;
+        font-weight: 700;
+        color: $logo;
+    }
 }
 
 .form-wrapper {
@@ -272,6 +325,9 @@ h1 {
     flex-direction: column;
     padding: 1em 0em;
     margin: 0;
+    .label-subtext {
+        font-style: italic;
+    }
     label {
         font-weight: 500;
         margin-bottom: 8px;
@@ -297,7 +353,7 @@ h2.content-section {
     text-align: center;
     margin-top: 0;
     margin-bottom: 24px;
-    color: $background;
+    // color: $logo;
 }
 
 p.content-section {

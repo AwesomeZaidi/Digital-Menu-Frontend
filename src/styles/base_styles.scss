@@ -1,14 +1,25 @@
 @import './variables.scss';
 
 @font-face {
+    font-family: bold;
+    src: url(../assets/fonts/manrope/bold.otf);
+}
+
+@font-face {
     font-family: thin;
     src: url(../assets/fonts/HelveticaNeue-Thin.otf);
+}
+
+// TEMP
+.logo {
+    // font-family: bold;
+    font-weight: 700;
 }
 
 a {
     cursor: pointer;
     text-decoration: none;
-    color: $secondary;
+    color: black;
     margin: 0;
     padding: 0;
 }
@@ -16,8 +27,8 @@ a {
 button, %button {
     // margin: 1.4em 0em;
     padding: .6em 2.2em;
-    background-color: $primary_action;
-    color: $secondary;
+    background-color: $logo;
+    color: white;
     border: none;
     border-radius: 8px;
     // color: $secondary;

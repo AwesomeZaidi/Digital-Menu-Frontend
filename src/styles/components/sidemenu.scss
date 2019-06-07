@@ -5,4 +5,76 @@
     color: black;
     float: left;
     height: 95vh;
+    width: 16vw;
+    position: relative;
+    .welcome {
+        padding-bottom: 2.4em;
+        padding-top: 2.4em;
+        text-align: center;
+        font-size: 1.8em;
+        font-weight: 700;
+        color: rgb(34, 34, 34);
+        margin: 0em;
+    }
+    .welcome:hover{
+        color: rgba(159, 159, 159, 0.406);
+        background-color: rgba(139, 140, 142, 0.55);
+        -webkit-transition: background-color .3s ease-out;
+        -moz-transition: background-color .3s ease-out;
+        -o-transition: background-color .3s ease-out;
+        transition: background-color .3s ease-out;
+    }
+    .welcome:hover~.settings-box{
+        display: block;
+    }
+    .settings-box {
+        z-index: 10;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        font-weight: 700;
+        font-size: 2.4em;
+        display: none;
+        color: white;
+        margin-bottom: 2.4em;
+        margin-top: 2.4em;
+
+    }
+    .menu-line {
+        display: block;
+        overflow: hidden;
+        border-style: inset;
+        border-width: .9px;
+    }
+    .menu-options {
+        list-style: none;
+        font-size: 1.4em;
+        margin-top: 2.4em;
+        display: flex;
+        flex-direction: column;
+        .list-circle {
+            height: .6em;
+            width: .6em;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: .6em;
+        }
+        .list-item {
+            padding-left: .6em;
+            padding-top: .4em;
+            padding-bottom: .4em;
+            -webkit-transition: background-color .3s ease-out;
+            -moz-transition: background-color .3s ease-out;
+            -o-transition: background-color .3s ease-out;
+            transition: background-color .3s ease-out;
+        }
+        .list-item:hover {
+            // @extend %bg_color_animate_smooth;
+            background-color: #EBEFF3;
+        }
+    }
 }

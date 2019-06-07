@@ -5,14 +5,20 @@
 .table-page {
     display: flex;
     flex-direction: column;
-    max-width: 85%;
+    max-width: 80%;
     margin: 0 auto;
+    .table-header {
+        font-size: 2em;
+        margin: auto .2em;
+        font-weight: 200;
+    }
     .table-top-row {
         display: flex;
         justify-content: space-between; 
+        align-items: center;
         .table-header {
+            font-size: 2em;
             margin: auto .2em;
-            font-size: 1.6em;
             font-weight: 200;
         }
         button {

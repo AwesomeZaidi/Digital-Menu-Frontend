@@ -1,4 +1,5 @@
 @import '../variables.scss';
+// @import '../base_styles.scss';
 
 header {
     nav {
@@ -8,6 +9,7 @@ header {
         justify-content: space-between;
         align-items: center;
         padding: .1em 2em;
+        border-bottom: .5px solid rgba(52, 52, 52, 0.24);
         h1 {
             font-size: 2em;
             margin: 0;
@@ -15,6 +17,13 @@ header {
         }
         a {
             color: $text;
+        }
+        .logo {
+            color: $logo;
+            // font-family: regular;
+        }
+        .signup {
+            margin-left: 1.2em;
         }
     }
 }
