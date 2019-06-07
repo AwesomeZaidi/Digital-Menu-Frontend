@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 export default class Add extends Component {
     render() {
         return (
+            <Link to={this.props.url}>
             <button className='btn_primary'>
-                {/* why can't I throw a ternary operator in here man. :/ */}
-                <Link to='/addLocation'>Add {this.props.title}</Link>
+                Add {this.props.title}
             </button>
+            </Link>
         );
     };
 };

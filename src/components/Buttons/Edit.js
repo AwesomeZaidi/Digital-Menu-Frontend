@@ -6,7 +6,7 @@ export default class Edit extends Component {
     render() {
         const locationSpecificLink = `/restaurant/${this.props.restaurantId}/location/${this.props.locationId}/items`;
         return (
-            <button className='btn_edit'><Link to={locationSpecificLink}>Edit {this.props.title}</Link></button>
+            <Link to={locationSpecificLink}><button className='btn_edit'>Edit {this.props.title}</button></Link>
         );
     };
 };
