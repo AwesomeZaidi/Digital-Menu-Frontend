@@ -12,7 +12,8 @@ import {
 from "../constants/action-types";
 import axios from "axios";
 
-const baseUrl = `https://temp-digitalmenu-backend.herokuapp.com`;
+const baseUrl = `https://digitalmenu-intensive.herokuapp.com`;
+// const baseUrl = `https://temp-digitalmenu-backend.herokuapp.com`;
 // const baseUrl = `https://digitalmenu-intensive.herokuapp.com`;
 
 // AUTH
