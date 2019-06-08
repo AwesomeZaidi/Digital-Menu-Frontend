@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "http-proxy-middleware": "^0.19.1",
     "jquery": "^3.3.1",
     "lottie-react-web": "^2.1.4",
     "node-sass": "^4.11.0",
