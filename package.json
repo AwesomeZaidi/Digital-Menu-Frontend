@@ -35,5 +35,6 @@
   ],
   "devDependencies": {
     "cypress": "^3.2.0"
-  }
+  },
+  "proxy": "https://digitalmenu-intensive.herokuapp.com/"
 }

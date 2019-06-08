@@ -116,6 +116,8 @@ export const handleGetRestaurants = (restaurants) => {
 export function addRestaurant(restaurantState) {
     return (dispatcher) => {
         axios.post(`${baseUrl}/restaurant`, restaurantState).then((res) => {
+            console.log('res.data:', res.data);
+            console.log('res.status:', res.status);
             dispatcher(handleAddRestaurant(res.data));
         }).catch(console.err);
     };
