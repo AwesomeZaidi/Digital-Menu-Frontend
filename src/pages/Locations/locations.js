@@ -5,6 +5,7 @@ import { Redirect } from 'react-router';
 import AddBtn from '../../components/Buttons/Add';
 import LocationsTable from '../../components/Views/LocationsTable';
 import '../../styles/locations.scss';
+import { Link } from 'react-router-dom';
 
 class Locations extends Component {
 
@@ -20,7 +21,10 @@ class Locations extends Component {
         return (
             <section className='table-page'>
                 <div className='table-top-row'>
-                    <p className='table-header'>Manage {this.props.restaurant.restaurantName} Locations</p>
+                    <div>
+                        <Link to='/restaurants'>&lt; Back</Link>
+                        <p className='table-header'>Manage {this.props.restaurant.restaurantName} Locations</p>
+                    </div>
                     <AddBtn url='/addLocation' title='Location'/>
                 </div>
                 <LocationsTable locations={this.props.locations}/>             

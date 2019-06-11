@@ -23,7 +23,10 @@ class Items extends Component {
         return (
             <section className='table-page'>
             <div className='table-top-row'>
-                <p className='table-header'>Update {this.props.location.locationName} Items</p>
+                <div>
+                    <Link to={`/restaurant/${this.props.restaurant._id}/locations`}>&lt; Back</Link>
+                    <p className='table-header'>Update {this.props.location.locationName} Items</p>
+                </div>
                 <Link to={`/restaurant/${this.props.match.params.restaurantId}/location/${this.props.match.params.locationId}/`}>
                     <button className='btn_edit'>Edit Location Info</button>
                 </Link>
