@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import HowItWorks from '../../components/HowItWorks';
 import { Redirect } from 'react-router';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import { login, clearError } from '../../redux/actions/index';
 import excel from '../../assets/excel2.jpg';
 import demo from '../../assets/demo.png';
@@ -23,7 +24,9 @@ class Home extends Component {
     };
 
     componentDidMount() {
-
+        if (this.props.user) {
+            return <Redirect to='/dashboard'/>
+        }
         this.props.clearError(false);
 
         const modal = document.getElementById('myModal'); // Get the modal
@@ -78,9 +81,6 @@ class Home extends Component {
     };
 
     render() {
-        if (this.props.user) {
-            return <Redirect to='/dashboard'/>
-        };
         return (
             <>
             <section className='home'>    
@@ -144,7 +144,7 @@ class Home extends Component {
                             : null}
                         </div>
                         <center>
-                            <a href='/signup' className='block__btn landing-btn'>Sign up</a>
+                            <Link to='/signup' className='block__btn landing-btn'>Sign up</Link>
                             <a href='#advantage-block' className='block__btn landing-btn'>Learn More</a>
                         </center>
                     

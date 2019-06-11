@@ -54,9 +54,11 @@ export const handleSignup = (user) => {
 
 export function logout() {
     return (dispatcher) => {
-        axios.delete(`${baseUrl}/users/v0/logout`).then(() => {
-            dispatcher(handleLogout());
-        }).catch(console.err);
+        dispatcher(handleLogout());
+        // OLD CODE FOR PRODUCTION w/ auth.
+        // axios.delete(`${baseUrl}/users/v0/logout`).then(() => {
+        //     dispatcher(handleLogout());
+        // }).catch(console.err);
     };
 };
 
