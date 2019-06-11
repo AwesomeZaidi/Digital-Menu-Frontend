@@ -9,7 +9,7 @@ class NavBar extends Component {
         return (
             <header>
                 <nav>
-                    <h1 className='logo'>Digital Menu</h1>
+                    <Link to='/'><h1 className='logo'>Digital Menu</h1></Link>
                     { this.props.user ?
                     <div>
                         <p className='cursor' onClick={this.props.logout}>Logout</p>
