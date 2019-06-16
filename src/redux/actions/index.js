@@ -12,7 +12,8 @@ import {
 from "../constants/action-types";
 import axios from "axios";
 
-const baseUrl = `https://digitalmenu-intensive.herokuapp.com`;
+const baseUrl = `http://localhost:5000`;
+// const baseUrl = `https://digitalmenu-intensive.herokuapp.com`;
 // const baseUrl = `https://temp-digitalmenu-backend.herokuapp.com`;
 // const baseUrl = `https://digitalmenu-intensive.herokuapp.com`;
 
@@ -37,6 +38,8 @@ export const handleLogin = (user) => {
 export function signup(signupState) {
     return (dispatcher) => {
         axios.post(`${baseUrl}/users/v0/signup`, signupState).then((res) => {
+            console.log('res.data:', res.data);
+            
             dispatcher(handleSignup(res.data));
         }).catch((err) => {
             console.log(err);
@@ -54,11 +57,11 @@ export const handleSignup = (user) => {
 
 export function logout() {
     return (dispatcher) => {
-        dispatcher(handleLogout());
         // OLD CODE FOR PRODUCTION w/ auth.
-        // axios.delete(`${baseUrl}/users/v0/logout`).then(() => {
-        //     dispatcher(handleLogout());
-        // }).catch(console.err);
+        axios.delete(`${baseUrl}/users/v0/logout`).then((res) => {
+            // res.clearCookie('nToken');
+            dispatcher(handleLogout());
+        }).catch(console.err);
     };
 };
 

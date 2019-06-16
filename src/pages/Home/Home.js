@@ -145,7 +145,7 @@ class Home extends Component {
                         </div>
                         <center>
                             <Link to='/signup' className='block__btn landing-btn'>Sign up</Link>
-                            <a href='#advantage-block' className='block__btn landing-btn'>Learn More</a>
+                            {/* <a href='#advantage-block' className='block__btn landing-btn'>Log In</a> */}
                         </center>
                     
                     <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
@@ -161,7 +161,7 @@ class Home extends Component {
 
 
                 {/* ADVANTAGE */}
-                <div id='advantage-block' className='advantage-block flexbox justify-content-space-evenly section-padding'>
+                {/* <div id='advantage-block' className='advantage-block flexbox justify-content-space-evenly section-padding'>
                     <div className='item'>
                         <p className='advantage-block__title'>Over 100 restaurants</p>
                         <p className='block__paragraph'>Take care of your menus easier than ever.</p>
@@ -174,10 +174,10 @@ class Home extends Component {
                         <p className='advantage-block__title'>Keep customers happy</p>
                         <p className='block__paragraph'>Never again will customers see wrong prices listed.</p>
                     </div>
-                </div>
+                </div> */}
 
                 {/* HOW IT WORKS */}
-                <HowItWorks />
+                {/* <HowItWorks /> */}
 
                 </section>
             <Footer/>
