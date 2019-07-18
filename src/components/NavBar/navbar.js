@@ -3,13 +3,15 @@ import '../../styles/components/navbar.scss';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../redux/actions/index';
+import logo from '../../assets/logo.png';
 
 class NavBar extends Component {
     render() {
         return (
             <header>
                 <nav>
-                    <Link to='/'><h1 className='logo'>Digital Menu</h1></Link>
+
+                    <Link to='/'><img className='logo' src={logo} alt='Digital Menu'></img></Link>
                     { this.props.user ?
                     <div>
                         <p className='cursor' onClick={this.props.logout}>Logout</p>

@@ -37,16 +37,29 @@ export const handleLogin = (user) => {
 
 export function signup(signupState) {
     return (dispatcher) => {
-        axios.post(`${baseUrl}/users/v0/signup`, signupState).then((res) => {
-            console.log('res.data:', res.data);
-            
-            dispatcher(handleSignup(res.data));
+        console.log('here');
+        fetch('http://localhost:5000/signup', {
+            method: 'post',
+            headers: {	"Accept": "application/json",
+            "Content-Type": "application/json"},
+            body: JSON.stringify(signupState)
+        }).then((res) => res.json().then(data => data)).then((data) => {
+            dispatcher(handleSignup(data));
         }).catch((err) => {
             console.log(err);
             dispatcher(handleError(true));
-        });
-    };
+        })
+    }
 };
+
+        // axios.post(`${baseUrl}/signup`, signupState).then((res) => {
+        //     console.log('res.data:', res.data);
+            
+        //     dispatcher(handleSignup(res.data));
+        // }).catch((err) => {
+        //     console.log(err);
+        //     dispatcher(handleError(true));
+        // });
 
 export const handleSignup = (user) => {
     return {

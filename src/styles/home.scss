@@ -9,10 +9,10 @@
       -o-animation: fadein 2s; /* Opera < 12.1 */
          animation: fadein 2s;
 }
+
 .home {
     color: $secondary;
     background-color: $primary;
-
     .top {
         min-height: 40em;
         padding-top: 4em;
@@ -48,14 +48,12 @@
         @-moz-keyframes fadein {
             from { opacity: 0; }
             to   { opacity: 1; }
-        }
-        
+        }       
         /* Safari, Chrome and Opera > 12.1 */
         @-webkit-keyframes fadein {
             from { opacity: 0; }
             to   { opacity: 1; }
-        }
-        
+        }       
         /* Internet Explorer */
         @-ms-keyframes fadein {
             from { opacity: 0; }
@@ -67,8 +65,13 @@
                 margin-bottom: 10em;
             }
         }
+        .connect-text {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: lighter;
+            color: #414141;
+        }
         .lower-logos {
-                margin-top: 1em;
             img { 
                 margin: 0em 2em 1.2em 1em;
                 width: 8em;

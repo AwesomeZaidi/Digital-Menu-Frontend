@@ -12,6 +12,8 @@ import '../../styles/components/login_modal.scss';
 // import '../../utils/popupLogin.js';
 import Typed from 'react-typed';
 import Fade from 'react-reveal/Fade';
+import loginAnim from '../../assets/login_anim.svg';
+import logo from '../../assets/logo.png';
 
 class Home extends Component {
     constructor(props) {
@@ -90,9 +92,10 @@ class Home extends Component {
                         {/* <!-- Modal content --> */}
                         <div className="modal-content">
                             <span className="close">&times;</span>
-
+                            <img className='login-logo' src={logo}></img>
+                            <img src={loginAnim} className='login-anim' alt='joining'></img>
                             <form className='login-form' onSubmit={this.handleLogin}>
-                                <h4 className='content-section'>Login Form</h4>
+                                <h4 className='content-section'>Login</h4>
                                 {this.props.error === true ? <p className='p_error'><strong>Wrong email or password</strong></p> : <p>no err</p> }
                                 <div className='form-group'>
                                     <label htmlFor="email">Your email</label>
@@ -147,7 +150,7 @@ class Home extends Component {
                             <Link to='/signup' className='block__btn landing-btn'>Sign up</Link>
                             {/* <a href='#advantage-block' className='block__btn landing-btn'>Log In</a> */}
                         </center>
-                    
+                    <p className='connect-text'>CONNECTS WITH</p>
                     <div className='lower-logos align-items-center flexbox justify-content-center section-side-padding'>
                         <img src='./assets/images/doordash.png' alt='pic'></img>
                         <img src='./assets/images/grubhub.png' alt='pic'></img>
